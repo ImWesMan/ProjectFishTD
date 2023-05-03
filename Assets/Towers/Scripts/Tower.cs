@@ -4,21 +4,28 @@ using UnityEngine;
 
 public abstract class Tower : MonoBehaviour
 {
-    public int attackDamage;
-    public int attackRange;
-    public int attackSpeed;
-
+    public float attackDamage;
+    public float attackRange;
+    public float attackSpeed;
     public abstract void Attack(GameObject fish);
+
+    //See tower ranges for debug purposes
+    protected virtual void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
 
     protected void checkCloseToTag(string tag) 
     {
         GameObject[] fishes = GameObject.FindGameObjectsWithTag(tag);
         foreach(GameObject fish in fishes) {
-            if(Mathf.Abs(fish.transform.position.x - gameObject.transform.position.x) < this.attackRange &&
-                Mathf.Abs(fish.transform.position.y - gameObject.transform.position.y) < this.attackRange)
+            float distance = Vector3.Distance(transform.position, fish.transform.position);
+            if(distance <= attackRange)
             {
                 Attack(fish);
             }
         }
     }
+
 }

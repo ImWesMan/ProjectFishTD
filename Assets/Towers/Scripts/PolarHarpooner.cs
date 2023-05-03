@@ -22,5 +22,5 @@ public class PolarHarpooner : Tower
     {
         checkCloseToTag("Fish");
     }
-
+   
 }
