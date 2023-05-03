@@ -11,8 +11,8 @@ public class PolarHarpooner : Tower
         if (slowEffect == null) {
             // If not, add a new component and apply the slow effect
             slowEffect = fish.AddComponent<harpoonSlow>();
-            slowEffect.duration = 1.0f;
-            slowEffect.slowAmount = 0.5f;
+            slowEffect.duration = 2.0f;
+            slowEffect.slowAmount = 0.3f;
             slowEffect.ApplyEffect();
         }
         else {
