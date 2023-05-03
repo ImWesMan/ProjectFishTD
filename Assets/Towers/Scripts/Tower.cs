@@ -7,6 +7,7 @@ public abstract class Tower : MonoBehaviour
     public float attackDamage;
     public float attackRange;
     public float attackSpeed;
+    private float attackTimer;
     public abstract void Attack(GameObject fish);
 
     //See tower ranges for debug purposes
@@ -14,6 +15,20 @@ public abstract class Tower : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    public void Update()
+    {
+        // Check for fish in attack range and attack if timer is up
+        if (attackTimer >= attackSpeed)
+        {
+            checkCloseToTag("Fish");
+        }
+        else
+        {
+            // Update the attack timer
+            attackTimer += Time.deltaTime;
+        }
     }
 
     protected void checkCloseToTag(string tag) 
@@ -24,6 +39,8 @@ public abstract class Tower : MonoBehaviour
             if(distance <= attackRange)
             {
                 Attack(fish);
+                attackTimer = 0.0f; // Reset the attack timer
+                break; // Only attack one fish per frame
             }
         }
     }

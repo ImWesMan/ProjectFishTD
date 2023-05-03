@@ -15,12 +15,12 @@ public class PolarHarpooner : Tower
     {
         this.attackDamage = 15;
         this.attackRange = 5;
-        this.attackSpeed = 30;
+        this.attackSpeed = 2;
     }
     
     void Update() 
     {
-        checkCloseToTag("Fish");
+        base.Update();
     }
    
 }
