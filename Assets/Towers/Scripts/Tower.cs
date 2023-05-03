@@ -17,6 +17,11 @@ public abstract class Tower : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
+    public void Start()
+    {
+        attackTimer = attackSpeed;
+    }
+
     public void Update()
     {
         // Check for fish in attack range and attack if timer is up
