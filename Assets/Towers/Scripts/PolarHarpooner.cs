@@ -19,7 +19,8 @@ public class PolarHarpooner : Tower
             // If the fish already has a slow effect, just reset its remaining duration
             slowEffect.remainingDuration = slowEffect.duration;
         }
-    
+        //Do damage to the fish
+        DamageFish(fish, gameObject.GetComponent<Tower>().attackDamage);
         Debug.Log("PolarHarpooner is attacking!!!!");
     
     }
@@ -27,7 +28,7 @@ public class PolarHarpooner : Tower
 
     void Awake() 
     {
-        this.attackDamage = 15;
+        this.attackDamage = 5;
         this.attackRange = 5;
         this.attackSpeed = 2;
     }

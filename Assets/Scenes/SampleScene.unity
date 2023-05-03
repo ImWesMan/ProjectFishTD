@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 2935839}
   - component: {fileID: 2935838}
   - component: {fileID: 2935837}
+  - component: {fileID: 2935840}
   m_Layer: 0
   m_Name: Square (2)
   m_TagString: Fish
@@ -221,6 +222,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2935840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2935836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe50ce869bb6c2e4886615acd0efc616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0
+  worthAmount: 0
+  lifeCost: 0
+  fishName: 
 --- !u!1 &29001075
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +930,7 @@ GameObject:
   - component: {fileID: 741327560}
   - component: {fileID: 741327559}
   - component: {fileID: 741327558}
+  - component: {fileID: 741327561}
   m_Layer: 0
   m_Name: Square
   m_TagString: Fish
@@ -1000,6 +1018,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &741327561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741327557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe50ce869bb6c2e4886615acd0efc616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0
+  worthAmount: 0
+  lifeCost: 0
+  fishName: 
 --- !u!1 &783707760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,6 +1582,7 @@ GameObject:
   - component: {fileID: 1323792982}
   - component: {fileID: 1323792981}
   - component: {fileID: 1323792980}
+  - component: {fileID: 1323792983}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Fish
@@ -1635,6 +1670,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1323792983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323792979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe50ce869bb6c2e4886615acd0efc616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0
+  worthAmount: 0
+  lifeCost: 0
+  fishName: 
 --- !u!1 &1330889336 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7530997429376729705, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
@@ -2111,6 +2162,7 @@ GameObject:
   - component: {fileID: 1952369674}
   - component: {fileID: 1952369673}
   - component: {fileID: 1952369672}
+  - component: {fileID: 1952369675}
   m_Layer: 0
   m_Name: Square (3)
   m_TagString: Fish
@@ -2198,6 +2250,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1952369675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1952369671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe50ce869bb6c2e4886615acd0efc616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0
+  worthAmount: 0
+  lifeCost: 0
+  fishName: 
 --- !u!1 &1965567832
 GameObject:
   m_ObjectHideFlags: 0
@@ -2309,6 +2377,7 @@ GameObject:
   - component: {fileID: 1985798714}
   - component: {fileID: 1985798713}
   - component: {fileID: 1985798712}
+  - component: {fileID: 1985798715}
   m_Layer: 0
   m_Name: Square (4)
   m_TagString: Fish
@@ -2396,6 +2465,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1985798715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985798711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe50ce869bb6c2e4886615acd0efc616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 0
+  worthAmount: 0
+  lifeCost: 0
+  fishName: 
 --- !u!1001 &2001864720
 PrefabInstance:
   m_ObjectHideFlags: 0

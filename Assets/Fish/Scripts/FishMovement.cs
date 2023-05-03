@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class FishMovement : MonoBehaviour
 {
-    public float moveSpeed = 75.0f;
+    public float moveSpeed;
     GameObject currentWaypoint;
     // Start is called before the first frame update
     void Start()
     {
+        moveSpeed = gameObject.GetComponent<Fish>().movementSpeed;
         currentWaypoint = GameObject.FindWithTag("SpawnWaypoint");
     }
 

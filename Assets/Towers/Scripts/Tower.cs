@@ -50,4 +50,15 @@ public abstract class Tower : MonoBehaviour
         }
     }
 
+    protected void DamageFish(GameObject fish, float damage)
+    {
+        fish.GetComponent<Fish>().life -= damage;
+        if(fish.GetComponent<Fish>().life <= 0)
+        {
+            //THIS IS WHERE MONEY WOULD BE ADDED TO PLAYER
+            Debug.Log("A fish died");
+            Destroy(fish);
+        }
+    }
+
 }
