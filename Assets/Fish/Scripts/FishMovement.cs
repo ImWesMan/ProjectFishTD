@@ -16,6 +16,7 @@ public class FishMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        path = GameObject.Find("Path");
         moveSpeed = gameObject.GetComponent<Fish>().movementSpeed;
         index = 0;
         //transform.position = Vector3.Mopath.GetComponent<Path>().points[index].transform.position;
@@ -43,7 +44,7 @@ public class FishMovement : MonoBehaviour
         // if the enemy is close enough to the current waypoint, set the next waypoint as the current waypoint
         if (Vector3.Distance(transform.position, path.GetComponent<Path>().points[index].transform.position) < 0.1f)
         {
-            if (index < path.GetComponent<Path>().points.Length)
+            if (index < path.GetComponent<Path>().points.Length  - 1)
             {
                 gameObject.GetComponent<Fish>().IncrementPercentage();
                 index++;

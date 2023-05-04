@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3528747000236605786}
   - component: {fileID: 8351435372486992502}
   m_Layer: 0
-  m_Name: FirstPath
-  m_TagString: Untagged
+  m_Name: Path
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,14 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1305708510260739481, guid: 9527e481fa801164e85c602b680c0765, type: 3}
+  vectors: []
   pointsIndex: 0
