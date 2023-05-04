@@ -6,31 +6,47 @@ public class FishMovement : MonoBehaviour
 {
     public float moveSpeed;
     [SerializeField]
-    public GameObject currentWaypoint;
+    public GameObject path;
+    private int index;
+
+    public Vector3 GetNextPosition() {
+        return path.GetComponent<Path>().points[index].transform.position;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         moveSpeed = gameObject.GetComponent<Fish>().movementSpeed;
-        currentWaypoint = GameObject.FindWithTag("SpawnWaypoint");
+        index = 0;
+        //transform.position = Vector3.Mopath.GetComponent<Path>().points[index].transform.position;
+        // calculate the direction to move towards the current waypoint
+        Vector3 direction = (path.GetComponent<Path>().points[index].transform.position - transform.position).normalized;
+
+        // move the enemy towards the current waypoint
+        transform.position += direction * moveSpeed * Time.deltaTime;
+        index++;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(index >= path.GetComponent<Path>().points.Length){
+            return;
+        }
+
         // calculate the direction to move towards the current waypoint
-        Vector3 direction = (currentWaypoint.transform.position - transform.position).normalized;
+        Vector3 direction = (path.GetComponent<Path>().points[index].transform.position - transform.position).normalized;
 
         // move the enemy towards the current waypoint
         transform.position += direction * moveSpeed * Time.deltaTime;
 
         // if the enemy is close enough to the current waypoint, set the next waypoint as the current waypoint
-        if (Vector3.Distance(transform.position, currentWaypoint.transform.position) < 0.1f)
+        if (Vector3.Distance(transform.position, path.GetComponent<Path>().points[index].transform.position) < 0.1f)
         {
-            if (currentWaypoint.GetComponent<Waypoint>().nextWaypoint != null)
+            if (index < path.GetComponent<Path>().points.Length)
             {
                 gameObject.GetComponent<Fish>().IncrementPercentage();
-                currentWaypoint = currentWaypoint.GetComponent<Waypoint>().nextWaypoint;
+                index++;
             }
             else
             {

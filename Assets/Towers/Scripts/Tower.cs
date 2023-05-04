@@ -48,8 +48,8 @@ public abstract class Tower : MonoBehaviour
         {
         System.Array.Sort(targets, (x, y) =>
         {
-            float distanceToNextWaypointX = Vector3.Distance(x.transform.position, x.GetComponent<FishMovement>().currentWaypoint.transform.position);
-            float distanceToNextWaypointY = Vector3.Distance(y.transform.position, y.GetComponent<FishMovement>().currentWaypoint.transform.position);
+            float distanceToNextWaypointX = Vector3.Distance(x.transform.position, x.GetComponent<FishMovement>().GetNextPosition());
+            float distanceToNextWaypointY = Vector3.Distance(y.transform.position, y.GetComponent<FishMovement>().GetNextPosition());
 
             float currentPercentageX = x.GetComponent<Fish>().GetCurrentPercentage();
             float currentPercentageY = y.GetComponent<Fish>().GetCurrentPercentage();
@@ -67,14 +67,14 @@ public abstract class Tower : MonoBehaviour
         }
          // Attack the first target in range
         foreach(GameObject target in targets) {
-        float distance = Vector3.Distance(transform.position, target.transform.position);
-        if(distance <= attackRange)
-        {
-            Attack(target);
-            attackTimer = 0.0f; // Reset the attack timer
-            break; // Only attack one target per frame
+            float distance = Vector3.Distance(transform.position, target.transform.position);
+            if(distance <= attackRange)
+            {
+                Attack(target);
+                attackTimer = 0.0f; // Reset the attack timer
+                break; // Only attack one target per frame
+            }
         }
-    }
     }
     protected void DamageFish(GameObject fish, float damage)
     {
