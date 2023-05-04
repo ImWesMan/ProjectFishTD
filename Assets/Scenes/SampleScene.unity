@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  currentWaypoint: {fileID: 0}
 --- !u!212 &2935838
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -215,7 +216,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2935836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.58, y: -17.34, z: 0}
+  m_LocalPosition: {x: 2.58, y: -19.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -238,6 +239,10 @@ MonoBehaviour:
   worthAmount: 0
   lifeCost: 0
   fishName: 
+  life: 0
+  armor: 0
+  waypointIncrement: 0
+  percentageProgress: 0
 --- !u!1 &29001075
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,8 +320,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29001075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.5203, y: 1.0612, z: 0}
-  m_LocalScale: {x: 1.7127, y: 14.017843, z: 1}
+  m_LocalPosition: {x: -4.5203, y: 1.0576, z: 0}
+  m_LocalScale: {x: 1.7127, y: 14.024838, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -339,7 +344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7530997429376729705, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Waypoint
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_RootOrder
@@ -347,11 +352,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.55
+      value: -10.51
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.67
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -404,7 +409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7530997429376729705, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Waypoint
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_RootOrder
@@ -412,11 +417,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.03
+      value: 6.02
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.87
+      value: 4.074
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -534,8 +539,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309964626}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -3.0097997, y: 0.91999996, z: 0}
-  m_LocalScale: {x: 1.7127, y: 16.54529, z: 1}
+  m_LocalPosition: {x: -3.0142, y: 0.91999996, z: 0}
+  m_LocalScale: {x: 1.7127, y: 16.553534, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -563,7 +568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7530997429376729705, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Waypoint
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_RootOrder
@@ -575,7 +580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.36
+      value: -5.14
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -633,7 +638,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7530997429376729705, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Waypoint
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_RootOrder
@@ -641,11 +646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.46
+      value: 2.527
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.59
+      value: -4.447
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -758,8 +763,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551393120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.4403, y: -2.8329, z: 0}
-  m_LocalScale: {x: 1.7127, y: 6.230494, z: 1}
+  m_LocalPosition: {x: -10.4403, y: -2.8365, z: 0}
+  m_LocalScale: {x: 1.7127, y: 6.2379704, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -879,11 +884,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.35
+      value: 2.515
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.37
+      value: -11.401
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -951,6 +956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  currentWaypoint: {fileID: 0}
 --- !u!212 &741327559
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1011,7 +1017,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741327557}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.579998, y: -14.679999, z: 0}
+  m_LocalPosition: {x: 2.579998, y: -15.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1034,6 +1040,10 @@ MonoBehaviour:
   worthAmount: 0
   lifeCost: 0
   fishName: 
+  life: 0
+  armor: 0
+  waypointIncrement: 0
+  percentageProgress: 0
 --- !u!1 &783707760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,7 +1234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7530997429376729705, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Waypoint
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_RootOrder
@@ -1232,11 +1242,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.56
+      value: -10.43
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.24
+      value: -5.15
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1373,7 +1383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7530997429376729705, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Waypoint
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_RootOrder
@@ -1385,7 +1395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.96
+      value: 7.14
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1446,7 +1456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.97
+      value: 7.19
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1603,6 +1613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  currentWaypoint: {fileID: 0}
 --- !u!212 &1323792981
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1663,7 +1674,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323792979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.579998, y: -15.969999, z: 0}
+  m_LocalPosition: {x: 2.579998, y: -17.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1686,6 +1697,10 @@ MonoBehaviour:
   worthAmount: 0
   lifeCost: 0
   fishName: 
+  life: 0
+  armor: 0
+  waypointIncrement: 0
+  percentageProgress: 0
 --- !u!1 &1330889336 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7530997429376729705, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
@@ -1776,7 +1791,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7530997429376729705, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Waypoint
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_RootOrder
@@ -1784,11 +1799,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.91
+      value: 10.983
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.59
+      value: -4.451
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1911,8 +1926,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1601357356}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.5997005, y: -8.5027, z: 0}
-  m_LocalScale: {x: 1.7127, y: 6.6982903, z: 1}
+  m_LocalPosition: {x: 2.6109, y: -8.5027, z: 0}
+  m_LocalScale: {x: 1.6905072, y: 6.6982903, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2019,7 +2034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7530997429376729705, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Waypoint
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_RootOrder
@@ -2027,7 +2042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.88
+      value: 6.02
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2144,8 +2159,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902794699}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 6.8349, y: -4.38, z: 0}
-  m_LocalScale: {x: 1.7127, y: 10.1362705, z: 1}
+  m_LocalPosition: {x: 6.8267, y: -4.38, z: 0}
+  m_LocalScale: {x: 1.7127, y: 10.120052, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2183,6 +2198,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  currentWaypoint: {fileID: 0}
 --- !u!212 &1952369673
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2243,7 +2259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1952369671}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.579998, y: -18.91, z: 0}
+  m_LocalPosition: {x: 2.579998, y: -21.48, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2266,6 +2282,10 @@ MonoBehaviour:
   worthAmount: 0
   lifeCost: 0
   fishName: 
+  life: 0
+  armor: 0
+  waypointIncrement: 0
+  percentageProgress: 0
 --- !u!1 &1965567832
 GameObject:
   m_ObjectHideFlags: 0
@@ -2366,6 +2386,7 @@ MonoBehaviour:
   attackDamage: 15
   attackRange: 5
   attackSpeed: 30
+  targets: []
 --- !u!1 &1985798711
 GameObject:
   m_ObjectHideFlags: 0
@@ -2398,6 +2419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
+  currentWaypoint: {fileID: 0}
 --- !u!212 &1985798713
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2458,7 +2480,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1985798711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.579998, y: -13.259999, z: 0}
+  m_LocalPosition: {x: 2.579998, y: -12.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2481,6 +2503,10 @@ MonoBehaviour:
   worthAmount: 0
   lifeCost: 0
   fishName: 
+  life: 0
+  armor: 0
+  waypointIncrement: 0
+  percentageProgress: 0
 --- !u!1001 &2001864720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2498,7 +2524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7530997429376729705, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Waypoint
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_RootOrder
@@ -2506,11 +2532,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.91
+      value: 10.992
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.93
+      value: 4.134
       objectReference: {fileID: 0}
     - target: {fileID: 8251859064889727568, guid: c0aa97fb3b5d93141860dc5f64b3d1d2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2584,6 +2610,7 @@ MonoBehaviour:
   attackDamage: 15
   attackRange: 5
   attackSpeed: 30
+  targets: []
 --- !u!212 &2062625511
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -10,5 +10,22 @@ public abstract class Fish : MonoBehaviour
     public string fishName;
     public float life;
     public float armor;
+    public int waypointIncrement;
+    [SerializeField]
+    public float percentageProgress;
+    void Start()
+    {
+        waypointIncrement = 100/(GameObject.FindGameObjectsWithTag("Waypoint").Length + 2);
+        Debug.Log(GameObject.FindGameObjectsWithTag("Waypoint").Length + 2);
+    }
 
+    public void IncrementPercentage()
+    {
+        percentageProgress += waypointIncrement;
+    }
+
+    public float GetCurrentPercentage()
+    {
+        return percentageProgress;
+    }
 }

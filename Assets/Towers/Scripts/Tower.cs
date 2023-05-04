@@ -8,7 +8,10 @@ public abstract class Tower : MonoBehaviour
     public float attackRange;
     public float attackSpeed;
     private float attackTimer;
+    [SerializeField]
+    public GameObject[] targets;
     public abstract void Attack(GameObject fish);
+    public string targetMode = "First";
 
     //See tower ranges for debug purposes
     protected virtual void OnDrawGizmosSelected()
@@ -36,20 +39,43 @@ public abstract class Tower : MonoBehaviour
         }
     }
 
-    protected void checkCloseToTag(string tag) 
+    protected void checkCloseToTag(string tag)
     {
-        GameObject[] fishes = GameObject.FindGameObjectsWithTag(tag);
-        foreach(GameObject fish in fishes) {
-            float distance = Vector3.Distance(transform.position, fish.transform.position);
-            if(distance <= attackRange)
+        targets = GameObject.FindGameObjectsWithTag(tag);
+
+        // Sort the targets by currentPercentage and distance to the next waypoint
+        if(targetMode == "First")
+        {
+        System.Array.Sort(targets, (x, y) =>
+        {
+            float distanceToNextWaypointX = Vector3.Distance(x.transform.position, x.GetComponent<FishMovement>().currentWaypoint.transform.position);
+            float distanceToNextWaypointY = Vector3.Distance(y.transform.position, y.GetComponent<FishMovement>().currentWaypoint.transform.position);
+
+            float currentPercentageX = x.GetComponent<Fish>().GetCurrentPercentage();
+            float currentPercentageY = y.GetComponent<Fish>().GetCurrentPercentage();
+
+            int comparison = currentPercentageY.CompareTo(currentPercentageX);
+            if (comparison != 0)
             {
-                Attack(fish);
-                attackTimer = 0.0f; // Reset the attack timer
-                break; // Only attack one fish per frame
+                return comparison;
             }
+            else
+            {
+                return distanceToNextWaypointX.CompareTo(distanceToNextWaypointY);
+            }
+        });
+        }
+         // Attack the first target in range
+        foreach(GameObject target in targets) {
+        float distance = Vector3.Distance(transform.position, target.transform.position);
+        if(distance <= attackRange)
+        {
+            Attack(target);
+            attackTimer = 0.0f; // Reset the attack timer
+            break; // Only attack one target per frame
         }
     }
-
+    }
     protected void DamageFish(GameObject fish, float damage)
     {
         fish.GetComponent<Fish>().life -= damage;

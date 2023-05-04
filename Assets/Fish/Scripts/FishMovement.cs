@@ -5,7 +5,9 @@ using UnityEngine;
 public class FishMovement : MonoBehaviour
 {
     public float moveSpeed;
-    GameObject currentWaypoint;
+    [SerializeField]
+    public GameObject currentWaypoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class FishMovement : MonoBehaviour
         {
             if (currentWaypoint.GetComponent<Waypoint>().nextWaypoint != null)
             {
+                gameObject.GetComponent<Fish>().IncrementPercentage();
                 currentWaypoint = currentWaypoint.GetComponent<Waypoint>().nextWaypoint;
             }
             else
