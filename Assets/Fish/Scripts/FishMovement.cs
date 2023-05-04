@@ -14,6 +14,10 @@ public class FishMovement : MonoBehaviour
     }
 
     // Start is called before the first frame update
+    void Awake()
+    {
+        path = GameObject.Find("Path");
+    }
     void Start()
     {
         path = GameObject.Find("Path");
