@@ -9,6 +9,7 @@ public class FishMovement : MonoBehaviour
     public GameObject path;
     [SerializeField]
     private int index;
+    public GameObject levelManager;
 
     public Vector3 GetNextPosition() {
         return path.GetComponent<Path>().points[index].transform.position;
@@ -21,6 +22,7 @@ public class FishMovement : MonoBehaviour
     }
     void Start()
     {
+        levelManager = GameObject.Find("levelManager");
         path = GameObject.Find("Path");
         moveSpeed = gameObject.GetComponent<Fish>().movementSpeed;
         index = 0;
@@ -57,9 +59,9 @@ public class FishMovement : MonoBehaviour
             }
             else
             {
-                //SUBTRACT LIVES, ETC
-                Destroy(gameObject);
+                levelManager.GetComponent<levelManager>().subtractLives(gameObject);
                 Debug.Log("Reached the end of the path!");
+                Destroy(gameObject);
             }
         }
     }

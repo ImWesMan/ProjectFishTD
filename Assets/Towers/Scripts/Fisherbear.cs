@@ -15,7 +15,7 @@ public class Fisherbear : Tower
     {
         this.attackDamage = 10;
         this.attackRange = 4;
-        this.attackSpeed = 1;
+        this.attackSpeed = 0.5f;
     }
 
     void Update()
