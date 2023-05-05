@@ -27,6 +27,8 @@ public abstract class Tower : MonoBehaviour
 
     public void Update()
     {
+        targets = GameObject.FindGameObjectsWithTag("Fish");
+        sortTargets();
         // Check for fish in attack range and attack if timer is up
         if (attackTimer >= attackSpeed)
         {
@@ -41,30 +43,6 @@ public abstract class Tower : MonoBehaviour
 
     protected void checkCloseToTag(string tag)
     {
-        targets = GameObject.FindGameObjectsWithTag(tag);
-
-        // Sort the targets by currentPercentage and distance to the next waypoint
-        if(targetMode == "First")
-        {
-        System.Array.Sort(targets, (x, y) =>
-        {
-            float distanceToNextWaypointX = Vector3.Distance(x.transform.position, x.GetComponent<FishMovement>().GetNextPosition());
-            float distanceToNextWaypointY = Vector3.Distance(y.transform.position, y.GetComponent<FishMovement>().GetNextPosition());
-
-            float currentPercentageX = x.GetComponent<Fish>().GetCurrentPercentage();
-            float currentPercentageY = y.GetComponent<Fish>().GetCurrentPercentage();
-
-            int comparison = currentPercentageY.CompareTo(currentPercentageX);
-            if (comparison != 0)
-            {
-                return comparison;
-            }
-            else
-            {
-                return distanceToNextWaypointX.CompareTo(distanceToNextWaypointY);
-            }
-        });
-        }
          // Attack the first target in range
         foreach(GameObject target in targets) {
             float distance = Vector3.Distance(transform.position, target.transform.position);
@@ -87,4 +65,29 @@ public abstract class Tower : MonoBehaviour
         }
     }
 
+    public void sortTargets()
+    {
+         // Sort the targets by currentPercentage and distance to the next waypoint
+        if(targetMode == "First")
+        {
+        System.Array.Sort(targets, (x, y) =>
+        {
+            float distanceToNextWaypointX = Vector3.Distance(x.transform.position, x.GetComponent<FishMovement>().GetNextPosition());
+            float distanceToNextWaypointY = Vector3.Distance(y.transform.position, y.GetComponent<FishMovement>().GetNextPosition());
+
+            float currentPercentageX = x.GetComponent<Fish>().GetCurrentPercentage();
+            float currentPercentageY = y.GetComponent<Fish>().GetCurrentPercentage();
+
+            int comparison = currentPercentageY.CompareTo(currentPercentageX);
+            if (comparison != 0)
+            {
+                return comparison;
+            }
+            else
+            {
+                return distanceToNextWaypointX.CompareTo(distanceToNextWaypointY);
+            }
+        });
+        }
+    }
 }

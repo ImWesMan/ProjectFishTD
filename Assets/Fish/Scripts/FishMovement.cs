@@ -7,6 +7,7 @@ public class FishMovement : MonoBehaviour
     public float moveSpeed;
     [SerializeField]
     public GameObject path;
+    [SerializeField]
     private int index;
 
     public Vector3 GetNextPosition() {
@@ -35,6 +36,7 @@ public class FishMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        moveSpeed = gameObject.GetComponent<Fish>().movementSpeed;
         if(index >= path.GetComponent<Path>().points.Length){
             return;
         }

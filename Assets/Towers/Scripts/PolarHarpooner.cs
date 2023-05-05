@@ -28,9 +28,9 @@ public class PolarHarpooner : Tower
 
     void Awake() 
     {
-        this.attackDamage = 5;
+        this.attackDamage = 12;
         this.attackRange = 5;
-        this.attackSpeed = 2;
+        this.attackSpeed = 1.75f;
     }
     
     void Update() 

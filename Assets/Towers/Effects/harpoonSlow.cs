@@ -6,9 +6,10 @@ public class harpoonSlow : MonoBehaviour
 {
     public float duration;
     public float slowAmount;
-    private static float originalSpeed;
+    [SerializeField]
+    public float originalSpeed;
     public float remainingDuration;
-    
+
     void Start()
     {
         // Set the remaining duration of the effect
@@ -23,8 +24,7 @@ public class harpoonSlow : MonoBehaviour
         // If the effect has expired, reset the speed of the fish
         if (remainingDuration <= 0)
         {
-            gameObject.GetComponent<FishMovement>().moveSpeed = originalSpeed;
-            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            gameObject.GetComponent<Fish>().movementSpeed = originalSpeed;
             Destroy(this);
         }
     }
@@ -32,11 +32,10 @@ public class harpoonSlow : MonoBehaviour
     public void ApplyEffect()
     {
         if (originalSpeed == 0) {
-            originalSpeed = gameObject.GetComponent<FishMovement>().moveSpeed;
+            originalSpeed = gameObject.GetComponent<Fish>().movementSpeed;
         }
         // Reduce the speed of the fish
-        gameObject.GetComponent<FishMovement>().moveSpeed *= 1 - slowAmount;
-        gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+        gameObject.GetComponent<Fish>().movementSpeed *= 1 - slowAmount;
         // Reset the remaining duration of the effect
         remainingDuration = duration;
     }
