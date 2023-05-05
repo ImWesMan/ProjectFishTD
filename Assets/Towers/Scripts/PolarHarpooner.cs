@@ -31,6 +31,7 @@ public class PolarHarpooner : Tower
         this.attackDamage = 12;
         this.attackRange = 5;
         this.attackSpeed = 1.50f;
+        this.rotates = true;
     }
     
     void Update() 
