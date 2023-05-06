@@ -17,6 +17,7 @@ public class FishInfo
 
 public class fishSpawner : MonoBehaviour
 {
+    public int coroutineCounter;
     public GameObject basicFish;
     public GameObject behemothFish;
     public List<RoundInfo> roundInfoList = new List<RoundInfo>();
@@ -65,6 +66,7 @@ public class fishSpawner : MonoBehaviour
         {
             GameObject fishPrefab = fishTypeToPrefab[fishInfo.fishType];
             StartCoroutine(SpawnFish(fishInfo, fishPrefab, fishTypeToSpawnDelays[fishInfo.fishType]));
+            coroutineCounter++;
         }
     }
 
@@ -75,8 +77,12 @@ public class fishSpawner : MonoBehaviour
             Instantiate(fishPrefab, GameObject.Find("Path").GetComponent<Path>().points[0].position, Quaternion.identity); // instantiate prefab
             yield return new WaitForSeconds(delay);
         }
+        coroutineCounter--;
+        if(coroutineCounter== 0)
+        {
         Debug.Log("Done Spawning");
         doneSpawning = true;
+        }
     }
 
 }
