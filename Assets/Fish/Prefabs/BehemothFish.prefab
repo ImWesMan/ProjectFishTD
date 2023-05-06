@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1397796917931429873}
   - component: {fileID: 1397796917931429872}
   m_Layer: 0
-  m_Name: BehemothFish
+  m_Name: behemothFish
   m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

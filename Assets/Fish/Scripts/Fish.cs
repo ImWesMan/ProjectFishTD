@@ -16,7 +16,6 @@ public abstract class Fish : MonoBehaviour
     void Start()
     {
         waypointIncrement = 100/gameObject.GetComponent<FishMovement>().path.GetComponent<Path>().points.Length;
-        Debug.Log(gameObject.GetComponent<FishMovement>().path.GetComponent<Path>().points.Length);
     }
 
     public void IncrementPercentage()

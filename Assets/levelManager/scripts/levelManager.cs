@@ -5,8 +5,10 @@ using TMPro;
 
 public class levelManager : MonoBehaviour
 {
+    public GameObject roundManager;
     public TMP_Text livesText;
     public TMP_Text moneyText;
+    public TMP_Text roundText;
     public int lives;
     public int money;
     // Start is called before the first frame update
@@ -35,5 +37,10 @@ public class levelManager : MonoBehaviour
         {
             Debug.Log("GAME IS OVER");
         }
+    }
+
+    public void updateRoundText()
+    {
+        roundText.text = roundManager.GetComponent<roundManager>().currentRound.ToString();
     }
 }
