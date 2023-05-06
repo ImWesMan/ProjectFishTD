@@ -49,6 +49,12 @@ public class fishSpawner : MonoBehaviour
         round3.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 50 });
         round3.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 20 });
         roundInfoList.Add(round3);
+
+        RoundInfo round4 = new RoundInfo();
+        round4.fishList = new List<FishInfo>();
+        round4.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 75 });
+        round4.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 30 });
+        roundInfoList.Add(round4);
     }
 
     public void startRound(int currentRound)

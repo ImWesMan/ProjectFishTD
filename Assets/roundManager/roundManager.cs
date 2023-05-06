@@ -29,6 +29,13 @@ public class roundManager : MonoBehaviour
             startButton.interactable = true;
             checkingForRoundEnd = false;
         }
+        else if(gameObject.GetComponent<fishSpawner>().doneSpawning == true && GameObject.FindGameObjectsWithTag("Fish").Length == 0 && autoStart == true)
+        {
+            Debug.Log("Round" + currentRound + "Over.");
+            currentRound++;
+            checkingForRoundEnd = false;
+            startButtonPressed();
+        }
         }
     }
 
