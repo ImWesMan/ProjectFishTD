@@ -9,6 +9,7 @@ public abstract class Tower : MonoBehaviour
     public float attackSpeed;
     private float attackTimer;
     public bool rotates;
+    public bool animated;
     [SerializeField]
     public GameObject[] targets;
     public abstract void Attack(GameObject fish);
@@ -63,9 +64,13 @@ public abstract class Tower : MonoBehaviour
         {
         Vector3 targetDirection = fish.transform.position - transform.position; // Calculate the direction to the target
         Vector3 forwardDirection = transform.forward;
-        float angle = -Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg; // Calculate the angle between the tower and the target
-        angle += 180;
-        transform.rotation = Quaternion.Euler(angle, 90, -90); // Set the tower's rotation to face the target
+        float angle = Mathf.Atan2(targetDirection.y, targetDirection.x) * Mathf.Rad2Deg; // Calculate the angle between the tower and the target
+        angle += 90;
+        transform.rotation = Quaternion.Euler(0, 0, angle); // Set the tower's rotation to face the target
+        }
+        if(animated)
+        {
+            gameObject.GetComponent<Animator>().SetTrigger("Attack");
         }
         fish.GetComponent<Fish>().life -= damage;
         if(fish.GetComponent<Fish>().life <= 0)

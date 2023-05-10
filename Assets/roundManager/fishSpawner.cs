@@ -29,7 +29,7 @@ public class fishSpawner : MonoBehaviour
         fishTypeToPrefab.Add("basicFish", basicFish);
         fishTypeToPrefab.Add("behemothFish", behemothFish);
         fishTypeToSpawnDelays.Add("basicFish", 0.5f);
-        fishTypeToSpawnDelays.Add("behemothFish", 1.0f);
+        fishTypeToSpawnDelays.Add("behemothFish", 1.2f);
     }
 
     void Start()
@@ -42,47 +42,47 @@ public class fishSpawner : MonoBehaviour
         RoundInfo round2 = new RoundInfo();
         round2.fishList = new List<FishInfo>();
         round2.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 45 });
-        round2.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 10 });
         roundInfoList.Add(round2);
 
         RoundInfo round3 = new RoundInfo();
         round3.fishList = new List<FishInfo>();
-        round3.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 50 });
-        round3.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 20 });
+        round3.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 60 });
+        round3.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 5 });
         roundInfoList.Add(round3);
 
         RoundInfo round4 = new RoundInfo();
         round4.fishList = new List<FishInfo>();
         round4.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 75 });
-        round4.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 30 });
+        round4.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 10 });
         roundInfoList.Add(round4);
     }
 
-    public void startRound(int currentRound)
-    {
-        doneSpawning = false;
-        RoundInfo round = roundInfoList[currentRound - 1]; // subtract 1 from currentRound to account for 0-based indexing
-        foreach (FishInfo fishInfo in round.fishList)
-        {
-            GameObject fishPrefab = fishTypeToPrefab[fishInfo.fishType];
-            StartCoroutine(SpawnFish(fishInfo, fishPrefab, fishTypeToSpawnDelays[fishInfo.fishType]));
-            coroutineCounter++;
-        }
-    }
+   public void startRound(int currentRound)
+{
+    doneSpawning = false;
+    RoundInfo round = roundInfoList[currentRound - 1]; // subtract 1 from currentRound to account for 0-based indexing
+    StartCoroutine(SpawnFishTypes(round.fishList));
+}
 
-    public IEnumerator SpawnFish(FishInfo fishInfo, GameObject fishPrefab, float delay)
+public IEnumerator SpawnFishTypes(List<FishInfo> fishList)
+{
+    foreach (FishInfo fishInfo in fishList)
     {
-        for (int i = 0; i < fishInfo.quantity; i++)
-        {
-            Instantiate(fishPrefab, GameObject.Find("Path").GetComponent<Path>().points[0].position, Quaternion.identity); // instantiate prefab
-            yield return new WaitForSeconds(delay);
-        }
-        coroutineCounter--;
-        if(coroutineCounter== 0)
-        {
-        Debug.Log("Done Spawning");
-        doneSpawning = true;
-        }
+        GameObject fishPrefab = fishTypeToPrefab[fishInfo.fishType];
+        float delay = fishTypeToSpawnDelays[fishInfo.fishType];
+        yield return StartCoroutine(SpawnFish(fishInfo, fishPrefab, delay));
     }
+    Debug.Log("Done Spawning");
+    doneSpawning = true;
+}
+
+public IEnumerator SpawnFish(FishInfo fishInfo, GameObject fishPrefab, float delay)
+{
+    for (int i = 0; i < fishInfo.quantity; i++)
+    {
+        Instantiate(fishPrefab, GameObject.Find("Path").GetComponent<Path>().points[0].position, Quaternion.identity); // instantiate prefab
+        yield return new WaitForSeconds(delay);
+    }
+}
 
 }
