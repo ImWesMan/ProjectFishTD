@@ -15,7 +15,9 @@ public class levelManager : MonoBehaviour
     void Start()
     {
         lives = 100;
-        money = 300;
+        money = 1750;
+        livesText.text = lives.ToString();
+        moneyText.text = money.ToString();
     }
 
     public void subtractLives(GameObject fish)
@@ -31,6 +33,18 @@ public class levelManager : MonoBehaviour
         moneyText.text = money.ToString();
     }
 
+     public void addMoney(int amount)
+    {
+        money += amount;
+        moneyText.text = money.ToString();
+    }
+    
+    public void subtractMoney(int amount)
+    {
+        money -= amount;
+        moneyText.text = money.ToString();
+    }
+
     public void checkGameEnd()
     {
         if(lives <= 0)
@@ -43,4 +57,5 @@ public class levelManager : MonoBehaviour
     {
         roundText.text = roundManager.GetComponent<roundManager>().currentRound.ToString();
     }
+
 }

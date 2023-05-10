@@ -7,6 +7,7 @@ TagManager:
   - Fish
   - Waypoint
   - Path
+  - Decor
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,7 @@ public abstract class Tower : MonoBehaviour
     public abstract void Attack(GameObject fish);
     public string targetMode = "First";
     public GameObject levelManager;
+    public int towerCost;
 
     //See tower ranges for debug purposes
     protected virtual void OnDrawGizmosSelected()

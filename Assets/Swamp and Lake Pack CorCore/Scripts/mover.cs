@@ -27,7 +27,6 @@ namespace Editor
     void Update()
     {
 
-        print(transform.position.x);
 
         if (checker)
         {
