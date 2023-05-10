@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Fish : MonoBehaviour
 {
+    public AudioSource deathSound;
     public float movementSpeed;
     public int worthAmount;
     public int lifeCost;

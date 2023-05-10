@@ -12,5 +12,6 @@ public class behemothFish : Fish
         this.fishName = "Behemoth Fish";
         this.life = 20.00f;
         this.armor = 0.00f;
+        this.deathSound = GameObject.Find("fishCaught").GetComponent<AudioSource>();
     }
 }

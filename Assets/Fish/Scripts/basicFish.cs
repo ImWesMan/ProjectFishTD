@@ -12,5 +12,6 @@ public class basicFish : Fish
         this.fishName = "Fish";
         this.life = 10.00f;
         this.armor = 0.00f;
+        this.deathSound = GameObject.Find("fishCaught").GetComponent<AudioSource>();
     }
 }

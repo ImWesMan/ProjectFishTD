@@ -75,6 +75,7 @@ public abstract class Tower : MonoBehaviour
         fish.GetComponent<Fish>().life -= damage;
         if(fish.GetComponent<Fish>().life <= 0)
         {
+            fish.GetComponent<Fish>().deathSound.Play();
             levelManager.GetComponent<levelManager>().addMoney(fish);
             Debug.Log("A fish died");
             Destroy(fish);
