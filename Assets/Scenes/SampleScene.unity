@@ -6362,6 +6362,9 @@ MonoBehaviour:
   cost: 0
   costText: {fileID: 2101638826}
   levelManager: {fileID: 0}
+  isDragging: 0
+  isPressed: 0
+  inPreviewMode: 0
 --- !u!114 &1083829242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9302,7 +9305,7 @@ PolygonCollider2D:
       - {x: 11.103001, y: -3.5846467}
       - {x: 10.588015, y: -4.7881136}
       - {x: 23.368147, y: -4.7865086}
-      - {x: 23.074654, y: 15.340086}
+      - {x: 23.330395, y: 15.435989}
       - {x: 14.324544, y: 15.427759}
       - {x: 12.056436, y: 15.361797}
       - {x: 9.582618, y: 15.472031}
@@ -9794,6 +9797,9 @@ MonoBehaviour:
   cost: 0
   costText: {fileID: 2011961291}
   levelManager: {fileID: 0}
+  isDragging: 0
+  isPressed: 0
+  inPreviewMode: 0
 --- !u!114 &1619692589
 MonoBehaviour:
   m_ObjectHideFlags: 0

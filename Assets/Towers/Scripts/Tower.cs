@@ -16,7 +16,7 @@ public abstract class Tower : MonoBehaviour
     public string targetMode = "First";
     public GameObject levelManager;
     public int towerCost;
-    public bool isColliding = false;
+    public bool isColliding = true;
     public int kills;
     //See tower ranges for debug purposes
     protected virtual void OnDrawGizmosSelected()
@@ -44,6 +44,7 @@ public abstract class Tower : MonoBehaviour
     {
         levelManager = GameObject.Find("levelManager");
         attackTimer = attackSpeed;
+        isColliding = true;
     }
 
     public void Update()
