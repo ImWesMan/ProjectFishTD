@@ -8,6 +8,7 @@ TagManager:
   - Waypoint
   - Path
   - Decor
+  - TowerPlacement
   layers:
   - Default
   - TransparentFX

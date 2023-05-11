@@ -33,6 +33,7 @@ public class PolarHarpooner : Tower
         this.attackSpeed = 1.50f;
         this.rotates = true;
         this.towerCost = 1275;
+        this.animated = true;
     }
     
     void Update() 

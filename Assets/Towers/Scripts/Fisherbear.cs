@@ -18,6 +18,7 @@ public class Fisherbear : Tower
         this.attackSpeed = 0.75f;
         this.rotates = true;
         this.towerCost = 850;
+        this.animated = true;
     }
 
     void Update()

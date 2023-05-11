@@ -16,12 +16,28 @@ public abstract class Tower : MonoBehaviour
     public string targetMode = "First";
     public GameObject levelManager;
     public int towerCost;
-
+    public bool isColliding = false;
+    public int kills;
     //See tower ranges for debug purposes
     protected virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+    
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        isColliding = true;
+    }
+
+     void OnTriggerStay2D(Collider2D col)
+    {
+        isColliding = true;
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+       isColliding = false;
     }
 
     public void Start()
