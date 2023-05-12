@@ -6,8 +6,8 @@ public class behemothFish : Fish
 {
     void Awake() 
     {
-        this.movementSpeed = 3;
-        this.worthAmount = 8;
+        this.movementSpeed = 2.5f;
+        this.worthAmount = 10;
         this.lifeCost = 2;
         this.fishName = "Behemoth Fish";
         this.life = 20.00f;

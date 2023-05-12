@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public abstract class Tower : MonoBehaviour
 {
     public float attackDamage;
@@ -17,7 +17,11 @@ public abstract class Tower : MonoBehaviour
     public GameObject levelManager;
     public int towerCost;
     public bool isColliding = true;
-    public int kills;
+    public int kills = 0;
+    public static Tower selectedTower;
+    public GameObject towerUIPrefab;
+    public GameObject towerUI;
+    public GameObject rangeIndicator;
     //See tower ranges for debug purposes
     protected virtual void OnDrawGizmosSelected()
     {
@@ -43,12 +47,54 @@ public abstract class Tower : MonoBehaviour
     public void Start()
     {
         levelManager = GameObject.Find("levelManager");
+        towerUI = Instantiate(towerUIPrefab, GameObject.Find("Canvas").transform);
+        towerUI.SetActive(false);
         attackTimer = attackSpeed;
         isColliding = true;
     }
 
+
+
+    public void OnMouseDown()
+    {
+      if (selectedTower != null && selectedTower != this)
+        {
+            selectedTower.GetComponent<Tower>().hideTowerUI();
+        }
+
+        if (selectedTower == this)
+        {
+            selectedTower = null;
+            hideTowerUI();
+        }
+        else
+        {
+            selectedTower = this;
+            displayTowerUI();
+        }
+    }
+
+    public void displayTowerUI()
+    {
+        towerUI.SetActive(true);
+        rangeIndicator.transform.localScale = new Vector3(attackRange * 4 + 1, attackRange * 4 + 1, 1);
+        rangeIndicator.SetActive(true);
+    }
+
+    public void hideTowerUI()
+    {
+        rangeIndicator.SetActive(false);
+        towerUI.SetActive(false);
+    }
+
     public void Update()
     {
+        if(selectedTower)
+        {
+            towerUI.GetComponent<TowerUI>().popCount.text = kills.ToString();
+            towerUI.GetComponent<TowerUI>().towerSprite.sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
+            towerUI.GetComponent<TowerUI>().targetModeText.text = targetMode;
+        }   
         targets = GameObject.FindGameObjectsWithTag("Fish");
         sortTargets();
         // Check for fish in attack range and attack if timer is up
@@ -93,6 +139,7 @@ public abstract class Tower : MonoBehaviour
         fish.GetComponent<Fish>().life -= damage;
         if(fish.GetComponent<Fish>().life <= 0)
         {
+            kills++;
             fish.GetComponent<Fish>().deathSound.Play();
             levelManager.GetComponent<levelManager>().addMoney(fish);
             Debug.Log("A fish died");

@@ -40,11 +40,11 @@ public class towerButton : MonoBehaviour
 
         if (EventSystem.current.IsPointerOverGameObject() && inPreviewMode)
         {
-            towerPreview.GetComponent<SpriteRenderer>().enabled = false;
+            towerPreview.SetActive(false);
         }
         if (!EventSystem.current.IsPointerOverGameObject() && inPreviewMode)
         {
-             towerPreview.GetComponent<SpriteRenderer>().enabled = true;
+              towerPreview.SetActive(true);
              leftTheBank = true;
         }
 

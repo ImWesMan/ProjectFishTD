@@ -6,8 +6,8 @@ public class basicFish : Fish
 {
     void Awake() 
     {
-        this.movementSpeed = 3.0f;
-        this.worthAmount = 5;
+        this.movementSpeed = 3.5f;
+        this.worthAmount = 7;
         this.lifeCost = 1;
         this.fishName = "Fish";
         this.life = 10.00f;
