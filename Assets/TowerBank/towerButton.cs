@@ -16,6 +16,7 @@ public class towerButton : MonoBehaviour
     public bool inPreviewMode;
     public bool leftTheBank = false;
     public bool towerPlaced = false;
+    public GameObject clickCollider;
     
     // Start is called before the first frame update
     void Start()
@@ -56,6 +57,7 @@ public class towerButton : MonoBehaviour
             isDragging = false;
             inPreviewMode = false;
             leftTheBank = false;
+            clickCollider.SetActive(true);
             return;
         }
 
@@ -89,6 +91,7 @@ public class towerButton : MonoBehaviour
                 inPreviewMode = false;
                 leftTheBank = false;
                 towerPlaced= true;
+                clickCollider.SetActive(true);
             }
             if (Input.GetMouseButtonDown(0) && insideCollider && isPressed)
             {
@@ -97,6 +100,7 @@ public class towerButton : MonoBehaviour
                 isPressed = false;
                 inPreviewMode = false;
                 leftTheBank = false;
+                clickCollider.SetActive(true);
             }
             if (Input.GetMouseButtonUp(0) && !insideCollider && isDragging)
             {
@@ -108,6 +112,7 @@ public class towerButton : MonoBehaviour
                 inPreviewMode = false;
                 leftTheBank= false;
                 towerPlaced = true;
+                clickCollider.SetActive(true);
             }
             if (Input.GetMouseButtonUp(0) && insideCollider && isDragging)
             {
@@ -116,12 +121,18 @@ public class towerButton : MonoBehaviour
                 isDragging = false;
                 inPreviewMode = false;
                 leftTheBank = false;
+                clickCollider.SetActive(true);
             }
         }
     }
 
     public void onPress()
     {
+        if(Tower.selectedTower != null)
+        {
+        Tower.selectedTower.GetComponent<Tower>().hideTowerUI();
+        }
+        clickCollider.SetActive(false);
         towerPlaced= false;
         if(levelManager.GetComponent<levelManager>().money < cost)
         {
@@ -140,6 +151,7 @@ public class towerButton : MonoBehaviour
         Debug.Log("Preview made");
         inPreviewMode = true;
         towerPreview = Instantiate(linkedTower, new Vector3(999, 999, 0), Quaternion.identity);
+        towerPreview.GetComponent<Tower>().rangeIndicator.SetActive(true);
         towerPreview.GetComponent<Tower>().enabled = false;
         Debug.Log("Is pressed = true");
         isPressed = true;
@@ -148,6 +160,11 @@ public class towerButton : MonoBehaviour
 
      public void onDrag()
     {
+        if(Tower.selectedTower != null)
+        {
+        Tower.selectedTower.GetComponent<Tower>().hideTowerUI();
+        }
+        clickCollider.SetActive(false);
         towerPlaced= false;
         if(levelManager.GetComponent<levelManager>().money < cost)
         {
@@ -163,6 +180,7 @@ public class towerButton : MonoBehaviour
         {
         inPreviewMode = true;
         towerPreview = Instantiate(linkedTower, new Vector3(999, 999, 0), Quaternion.identity);
+        towerPreview.GetComponent<Tower>().rangeIndicator.SetActive(true);
         towerPreview.GetComponent<Tower>().enabled = false;
         Debug.Log("Is dragging = true");
         isDragging = true;

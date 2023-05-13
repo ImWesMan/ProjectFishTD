@@ -34,6 +34,8 @@ public class PolarHarpooner : Tower
         this.rotates = true;
         this.towerCost = 1275;
         this.animated = true;
+        this.towerName = "Polar Harpooner";
+        this.sellAmount = 892;
     }
     
     void Update() 

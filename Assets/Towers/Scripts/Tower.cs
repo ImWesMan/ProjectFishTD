@@ -22,6 +22,9 @@ public abstract class Tower : MonoBehaviour
     public GameObject towerUIPrefab;
     public GameObject towerUI;
     public GameObject rangeIndicator;
+    public string towerName;
+    public int sellAmount;
+
     //See tower ranges for debug purposes
     protected virtual void OnDrawGizmosSelected()
     {
@@ -48,20 +51,27 @@ public abstract class Tower : MonoBehaviour
     {
         levelManager = GameObject.Find("levelManager");
         towerUI = Instantiate(towerUIPrefab, GameObject.Find("Canvas").transform);
+        towerUI.GetComponent<TowerUI>().towerNameText.text = towerName;
+        towerUI.GetComponent<TowerUI>().sellButton.onClick.AddListener(sellTower);
+        towerUI.GetComponent<TowerUI>().exitButton.onClick.AddListener(hideTowerUI);
         towerUI.SetActive(false);
         attackTimer = attackSpeed;
         isColliding = true;
     }
 
-
+    public void sellTower()
+    {
+        levelManager.GetComponent<levelManager>().addMoney(sellAmount);
+        Destroy(towerUI);
+        Destroy(gameObject);
+    }
 
     public void OnMouseDown()
     {
-      if (selectedTower != null && selectedTower != this)
+        if (selectedTower != null && selectedTower != this )
         {
             selectedTower.GetComponent<Tower>().hideTowerUI();
         }
-
         if (selectedTower == this)
         {
             selectedTower = null;
@@ -83,6 +93,7 @@ public abstract class Tower : MonoBehaviour
 
     public void hideTowerUI()
     {
+        selectedTower = null;
         rangeIndicator.SetActive(false);
         towerUI.SetActive(false);
     }
@@ -94,7 +105,8 @@ public abstract class Tower : MonoBehaviour
             towerUI.GetComponent<TowerUI>().popCount.text = kills.ToString();
             towerUI.GetComponent<TowerUI>().towerSprite.sprite = gameObject.GetComponent<SpriteRenderer>().sprite;
             towerUI.GetComponent<TowerUI>().targetModeText.text = targetMode;
-        }   
+            towerUI.GetComponent<TowerUI>().sellText.text = "SELL +" + sellAmount.ToString();
+        } 
         targets = GameObject.FindGameObjectsWithTag("Fish");
         sortTargets();
         // Check for fish in attack range and attack if timer is up

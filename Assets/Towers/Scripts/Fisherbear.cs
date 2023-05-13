@@ -19,6 +19,8 @@ public class Fisherbear : Tower
         this.rotates = true;
         this.towerCost = 850;
         this.animated = true;
+        this.towerName = "Fisherbear";
+        this.sellAmount = 595;
     }
 
     void Update()

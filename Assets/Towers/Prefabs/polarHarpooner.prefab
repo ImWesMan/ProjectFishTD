@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4694638745412926985}
   - component: {fileID: 4093390841804865921}
+  - component: {fileID: 1289724375058848896}
   m_Layer: 0
   m_Name: rangeIndicator
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 0.34117648}
   m_FlipX: 0
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1289724375058848896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5202820420232987828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b97572271b865b458fdd85044afdadc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5212002477369716265
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +175,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_Sprite: {fileID: 2028682623, guid: e5e2f2bf1473de14881c718ebcff43ca, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -200,6 +213,8 @@ MonoBehaviour:
   towerUIPrefab: {fileID: 1727534751244990004, guid: 400b3f163e017d74f9181812c009701d, type: 3}
   towerUI: {fileID: 0}
   rangeIndicator: {fileID: 5202820420232987828}
+  towerName: 
+  sellAmount: 0
 --- !u!58 &5212002477369716263
 CircleCollider2D:
   m_ObjectHideFlags: 0

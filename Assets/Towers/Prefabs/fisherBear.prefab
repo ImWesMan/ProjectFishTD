@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_Sprite: {fileID: -1386403712, guid: 4546d56c0e0fe5d4f933f244034e5205, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -116,6 +116,8 @@ MonoBehaviour:
   towerUIPrefab: {fileID: 1727534751244990004, guid: 400b3f163e017d74f9181812c009701d, type: 3}
   towerUI: {fileID: 0}
   rangeIndicator: {fileID: 5692899562614758209}
+  towerName: 
+  sellAmount: 0
 --- !u!95 &3724083404879215341
 Animator:
   serializedVersion: 4
@@ -245,7 +247,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_Sprite: {fileID: 1551109177, guid: 4546d56c0e0fe5d4f933f244034e5205, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -267,6 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7803659291628387265}
   - component: {fileID: 9189480536301629566}
+  - component: {fileID: 8071017251015226049}
   m_Layer: 0
   m_Name: rangeIndicator
   m_TagString: Untagged
@@ -329,9 +332,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 0.34117648}
+  m_Color: {r: 0.5566038, g: 0.5566038, b: 0.5566038, a: 0.3764706}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -341,3 +344,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8071017251015226049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692899562614758209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b97572271b865b458fdd85044afdadc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
