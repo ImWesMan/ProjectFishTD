@@ -86,7 +86,7 @@ public class fishSpawner : MonoBehaviour
 
         RoundInfo round7 = new RoundInfo();
         round7.fishList = new List<FishInfo>();
-        round7.fishList.Add(new FishInfo { fishType = "behemothFishFish", quantity = 30});
+        round7.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 30});
         round7.fishList.Add(new FishInfo { fishType = "blitzFish", quantity = 50 });
         round7.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 30 });
         round7.fishList.Add(new FishInfo { fishType = "blitzFish", quantity = 50 });
