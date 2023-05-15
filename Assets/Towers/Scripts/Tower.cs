@@ -31,7 +31,7 @@ public abstract class Tower : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
-    
+
     void OnTriggerEnter2D(Collider2D col)
     {
         isColliding = true;
@@ -49,6 +49,7 @@ public abstract class Tower : MonoBehaviour
 
     public void Start()
     {
+        this.sellAmount = Mathf.RoundToInt(towerCost * 0.70f);
         levelManager = GameObject.Find("levelManager");
         towerUI = Instantiate(towerUIPrefab, GameObject.Find("Canvas").transform);
         towerUI.GetComponent<TowerUI>().towerNameText.text = towerName;
