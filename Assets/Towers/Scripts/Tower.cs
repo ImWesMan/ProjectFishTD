@@ -13,7 +13,9 @@ public abstract class Tower : MonoBehaviour
     [SerializeField]
     public GameObject[] targets;
     public abstract void Attack(GameObject fish);
-    public string targetMode = "First";
+    public string[] targetModes = { "First", "Last", "Strong" };
+    public string targetMode;
+    public int targetModeIndex;
     public GameObject levelManager;
     public int towerCost;
     public bool isColliding = true;
@@ -24,7 +26,7 @@ public abstract class Tower : MonoBehaviour
     public GameObject rangeIndicator;
     public string towerName;
     public int sellAmount;
-
+    public bool attacks;
     //See tower ranges for debug purposes
     protected virtual void OnDrawGizmosSelected()
     {
@@ -58,6 +60,17 @@ public abstract class Tower : MonoBehaviour
         towerUI.SetActive(false);
         attackTimer = attackSpeed;
         isColliding = true;
+        if(attacks)
+        {
+            targetMode = targetModes[0];
+            targetModeIndex = 0;
+            towerUI.GetComponent<TowerUI>().targetMode.SetActive(true); 
+        }
+        else
+        {
+            targetMode = null;
+            towerUI.GetComponent<TowerUI>().targetMode.SetActive(false); 
+        }
     }
 
     public void sellTower()
@@ -97,6 +110,31 @@ public abstract class Tower : MonoBehaviour
         selectedTower = null;
         rangeIndicator.SetActive(false);
         towerUI.SetActive(false);
+    }
+
+    public void targetModeLeft()
+    {
+        if(targetModeIndex == 0)
+        {
+            return;
+        }
+        else
+        {
+            targetModeIndex-=1;
+            targetMode = targetModes[targetModeIndex];
+        }
+    }
+    public void targetModeRight()
+    {
+        if(targetModeIndex == targetModes.Length - 1)
+        {
+            return;
+        }
+        else
+        {
+            targetModeIndex+=1;
+            targetMode = targetModes[targetModeIndex];
+        }
     }
 
     public void Update()
@@ -184,5 +222,58 @@ public abstract class Tower : MonoBehaviour
             }
         });
         }
+        else if(targetMode == "Last")
+        {
+        System.Array.Sort(targets, (x, y) =>
+        {
+            float distanceToNextWaypointX = Vector3.Distance(x.transform.position, x.GetComponent<FishMovement>().GetNextPosition());
+            float distanceToNextWaypointY = Vector3.Distance(y.transform.position, y.GetComponent<FishMovement>().GetNextPosition());
+
+            float currentPercentageX = x.GetComponent<Fish>().GetCurrentPercentage();
+            float currentPercentageY = y.GetComponent<Fish>().GetCurrentPercentage();
+
+            int comparison = currentPercentageX.CompareTo(currentPercentageY);
+            if (comparison != 0)
+            {
+                return comparison;
+            }
+            else
+            {
+                return distanceToNextWaypointY.CompareTo(distanceToNextWaypointX);
+            }
+        });
+        }
+        else if (targetMode == "Strong")
+        {
+        System.Array.Sort(targets, (x, y) =>
+        {
+            float distanceToNextWaypointX = Vector3.Distance(x.transform.position, x.GetComponent<FishMovement>().GetNextPosition());
+            float distanceToNextWaypointY = Vector3.Distance(y.transform.position, y.GetComponent<FishMovement>().GetNextPosition());
+
+            float currentHPX = x.GetComponent<Fish>().life;
+            float currentHPY = y.GetComponent<Fish>().life;
+
+            int comparison = currentHPY.CompareTo(currentHPX);
+            if (comparison != 0)
+            {
+                return comparison;
+            }
+            else
+            {
+                float currentPercentageX = x.GetComponent<Fish>().GetCurrentPercentage();
+                float currentPercentageY = y.GetComponent<Fish>().GetCurrentPercentage();
+
+                int percentageComparison = currentPercentageY.CompareTo(currentPercentageX);
+                if (percentageComparison != 0)
+                {
+                    return percentageComparison;
+                }
+                else
+                {
+                    return distanceToNextWaypointX.CompareTo(distanceToNextWaypointY);
+                }
+            }
+            });
+        }   
     }
 }

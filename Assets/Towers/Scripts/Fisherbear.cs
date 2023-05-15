@@ -20,6 +20,7 @@ public class Fisherbear : Tower
         this.towerCost = 850;
         this.animated = true;
         this.towerName = "Fisherbear";
+        this.attacks = true;
         
     }
 

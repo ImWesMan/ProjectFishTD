@@ -12,4 +12,17 @@ public class TowerUI : MonoBehaviour
     public Button sellButton;
     public TMP_Text sellText;
     public Button exitButton;
+    public GameObject targetMode;
+    public Button leftSwitch;
+    public Button rightSwitch; 
+
+    public void callTargetModeRight()
+    {
+        Tower.selectedTower.GetComponent<Tower>().targetModeRight();
+    }
+    public void callTargetModeLeft()
+    {
+         Tower.selectedTower.GetComponent<Tower>().targetModeLeft();
+    }
 }
+

@@ -25,6 +25,7 @@ public class roundManager : MonoBehaviour
         if(gameObject.GetComponent<fishSpawner>().doneSpawning == true && GameObject.FindGameObjectsWithTag("Fish").Length == 0 && autoStart == false)
         {
             Debug.Log("Round" + currentRound + "Over.");
+            levelManager.GetComponent<levelManager>().addMoney(100 + currentRound);
             currentRound++;
             startButton.interactable = true;
             checkingForRoundEnd = false;
@@ -32,6 +33,7 @@ public class roundManager : MonoBehaviour
         else if(gameObject.GetComponent<fishSpawner>().doneSpawning == true && GameObject.FindGameObjectsWithTag("Fish").Length == 0 && autoStart == true)
         {
             Debug.Log("Round" + currentRound + "Over.");
+            levelManager.GetComponent<levelManager>().addMoney(100 + currentRound);
             currentRound++;
             checkingForRoundEnd = false;
             startButtonPressed();

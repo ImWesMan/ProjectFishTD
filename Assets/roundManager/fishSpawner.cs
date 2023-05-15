@@ -30,9 +30,9 @@ public class fishSpawner : MonoBehaviour
         fishTypeToPrefab.Add("basicFish", basicFish);
         fishTypeToPrefab.Add("behemothFish", behemothFish);
         fishTypeToPrefab.Add("blitzFish", blitzFish);
-        fishTypeToSpawnDelays.Add("basicFish", 0.5f);
-        fishTypeToSpawnDelays.Add("behemothFish", 1.2f);
-        fishTypeToSpawnDelays.Add("blitzFish", 0.7f);
+        fishTypeToSpawnDelays.Add("basicFish", 0.45f);
+        fishTypeToSpawnDelays.Add("behemothFish", 1.0f);
+        fishTypeToSpawnDelays.Add("blitzFish", 0.65f);
     }
 
     void Start()
