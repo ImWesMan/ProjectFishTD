@@ -13,10 +13,29 @@ public class OptionsUI : MonoBehaviour
     public Toggle autostartToggle;
     public Slider MASTERslider;
     public AudioMixer mixer;
-    
+    private bool isPaused = false;
     public void Start()
     {
         checkAutoStartState();
+    }
+
+    public void OnEnable()
+    {
+        // Pause the game when options UI is enabled
+        isPaused = true;
+        Time.timeScale = 0;
+        //Deselect any selected tower
+        if(Tower.selectedTower != null)
+        {
+        Tower.selectedTower.GetComponent<Tower>().hideTowerUI();
+        }
+    }
+
+    public void OnDisable()
+    {
+        // Resume the game when options UI is disabled
+        isPaused = false;
+        Time.timeScale = 1;
     }
 
     public void checkAutoStartState()
