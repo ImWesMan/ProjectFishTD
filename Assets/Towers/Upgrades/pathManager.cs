@@ -9,6 +9,7 @@ public class pathManager : MonoBehaviour
     public bool[] pathEnabled;
     public Upgrade[][] selectedTowerUpgrades;
     public GameObject towersUI;
+    public bool maxedPath = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +38,13 @@ public class pathManager : MonoBehaviour
         for(int i = 0;i< upgradePaths.Length; i++)
         {
            int pathIndex = i;
+           if(maxedPath)
+           {
+            if(upgradePaths[i] == 5)
+            {
+                pathEnabled[i] = false;
+            }
+           }
            if(upgradePaths[i] != 6)
            {
            //Set names
@@ -142,6 +150,10 @@ public class pathManager : MonoBehaviour
             {
                 upgradePaths[pathIndex] = 5;
                 selectedTowerUpgrades[pathIndex][4].applyUpgrade();
+                if(maxedPath)
+                {
+                    pathEnabled[pathIndex] = false;
+                }
                 updatePaths(towersUI);
                 return;
             }
@@ -150,14 +162,16 @@ public class pathManager : MonoBehaviour
                 return;
             }
         }
-        if (upgradePaths[pathIndex] == 5)
+        if (upgradePaths[pathIndex] == 5 && maxedPath == false)
         {
             bool canAfford = selectedTowerUpgrades[pathIndex][5].checkCost();
             if(canAfford)
             {
                 upgradePaths[pathIndex] = 6;
-                canOnlyHaveOneMaxPath();
                 selectedTowerUpgrades[pathIndex][5].applyUpgrade();
+                maxedPath = true;    
+                pathEnabled[pathIndex] = false;
+                
                 updatePaths(towersUI);
                 return;
             }
@@ -181,15 +195,5 @@ public class pathManager : MonoBehaviour
                 }
             }
         }
-    }
-    public void canOnlyHaveOneMaxPath()
-    {
-        for(int i = 0; i < upgradePaths.Length; i++)
-            {
-                if(upgradePaths[i] != 6)
-                {
-                    pathEnabled[i] = false;    
-                }
-            }
     }
 }
