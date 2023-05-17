@@ -15,7 +15,7 @@ public class levelManager : MonoBehaviour
     void Start()
     {
         lives = 100;
-        money = 4750;
+        money = 1250;
         livesText.text = lives.ToString();
         moneyText.text = money.ToString();
     }

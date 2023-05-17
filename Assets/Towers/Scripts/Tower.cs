@@ -28,6 +28,7 @@ public abstract class Tower : MonoBehaviour
     public bool attacks;
     public int numOfUpgradePaths;
     public Upgrade[][] towerUpgrades;
+    public int towerWorth;
 
     public abstract void Attack(GameObject fish);
     public abstract void assignUpgrades();
@@ -56,6 +57,7 @@ public abstract class Tower : MonoBehaviour
     public void Start()
     {
         this.sellAmount = Mathf.RoundToInt(towerCost * 0.70f);
+        towerWorth = sellAmount;
         levelManager = GameObject.Find("levelManager");
         towerUI = Instantiate(towerUIPrefab, GameObject.Find("Canvas").transform);
         towerUI.GetComponent<TowerUI>().towerNameText.text = towerName;
@@ -85,6 +87,11 @@ public abstract class Tower : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void calculateSellAmount()
+    {
+        sellAmount = Mathf.RoundToInt(towerWorth * 0.70f);
+    }
+
     public void OnMouseDown()
     {
         if (selectedTower != null && selectedTower != this )
@@ -109,6 +116,11 @@ public abstract class Tower : MonoBehaviour
         rangeIndicator.transform.localScale = new Vector3(attackRange * 4 + 1, attackRange * 4 + 1, 1);
         rangeIndicator.SetActive(true);
         gameObject.GetComponent<pathManager>().updatePaths(towerUI);
+    }
+
+    public void recalculateRangeRadius()
+    {
+        rangeIndicator.transform.localScale = new Vector3(attackRange * 4 + 1, attackRange * 4 + 1, 1);
     }
 
     public void hideTowerUI()

@@ -21,8 +21,8 @@ public class Fisherbear : Tower
         }
         //ASSIGN UPGRADES
         towerUpgrades[0][0] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[1][0] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[2][0] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[1][0] = gameObject.AddComponent<rangeUpgrade>();
+        towerUpgrades[2][0] = gameObject.AddComponent<damageUpgrade>();
         towerUpgrades[3][0] = gameObject.AddComponent<attackSpeedUpgrade>();
         towerUpgrades[0][1] = gameObject.AddComponent<attackSpeedUpgrade>();
         towerUpgrades[1][1] = gameObject.AddComponent<attackSpeedUpgrade>();

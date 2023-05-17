@@ -65,7 +65,7 @@ public class PolarHarpooner : Tower
     void Awake() 
     {
         this.attackDamage = 12;
-        this.attackRange = 5;
+        this.attackRange = 5.5f;
         this.attackSpeed = 1.50f;
         this.rotates = true;
         this.towerCost = 1275;

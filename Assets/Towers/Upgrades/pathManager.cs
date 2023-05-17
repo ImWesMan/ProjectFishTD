@@ -86,6 +86,8 @@ public class pathManager : MonoBehaviour
             bool canAfford = selectedTowerUpgrades[pathIndex][0].checkCost();
             if(canAfford)
             {
+                gameObject.GetComponent<Tower>().towerWorth += selectedTowerUpgrades[pathIndex][0].cost;
+                gameObject.GetComponent<Tower>().calculateSellAmount();
                 startedPaths++;
                 upgradePaths[pathIndex] = 1;
                 checkForMaxPaths();
@@ -103,6 +105,8 @@ public class pathManager : MonoBehaviour
             bool canAfford = selectedTowerUpgrades[pathIndex][1].checkCost();
             if(canAfford)
             {
+                gameObject.GetComponent<Tower>().towerWorth += selectedTowerUpgrades[pathIndex][1].cost;
+                gameObject.GetComponent<Tower>().calculateSellAmount();
                 upgradePaths[pathIndex] = 2;
                 selectedTowerUpgrades[pathIndex][1].applyUpgrade();
                 updatePaths(towersUI);
@@ -118,6 +122,8 @@ public class pathManager : MonoBehaviour
             bool canAfford = selectedTowerUpgrades[pathIndex][2].checkCost();
             if(canAfford)
             {
+                gameObject.GetComponent<Tower>().towerWorth += selectedTowerUpgrades[pathIndex][2].cost;
+                gameObject.GetComponent<Tower>().calculateSellAmount();
                 upgradePaths[pathIndex] = 3;
                 selectedTowerUpgrades[pathIndex][2].applyUpgrade();
                 updatePaths(towersUI);
@@ -133,6 +139,8 @@ public class pathManager : MonoBehaviour
             bool canAfford = selectedTowerUpgrades[pathIndex][3].checkCost();
             if(canAfford)
             {
+                gameObject.GetComponent<Tower>().towerWorth += selectedTowerUpgrades[pathIndex][3].cost;
+                gameObject.GetComponent<Tower>().calculateSellAmount();
                 upgradePaths[pathIndex] = 4;
                 selectedTowerUpgrades[pathIndex][3].applyUpgrade();
                 updatePaths(towersUI);
@@ -148,6 +156,8 @@ public class pathManager : MonoBehaviour
             bool canAfford = selectedTowerUpgrades[pathIndex][4].checkCost();
             if(canAfford)
             {
+                gameObject.GetComponent<Tower>().towerWorth += selectedTowerUpgrades[pathIndex][4].cost;
+                gameObject.GetComponent<Tower>().calculateSellAmount();
                 upgradePaths[pathIndex] = 5;
                 selectedTowerUpgrades[pathIndex][4].applyUpgrade();
                 if(maxedPath)
@@ -167,6 +177,8 @@ public class pathManager : MonoBehaviour
             bool canAfford = selectedTowerUpgrades[pathIndex][5].checkCost();
             if(canAfford)
             {
+                gameObject.GetComponent<Tower>().towerWorth += selectedTowerUpgrades[pathIndex][5].cost;
+                gameObject.GetComponent<Tower>().calculateSellAmount();
                 upgradePaths[pathIndex] = 6;
                 selectedTowerUpgrades[pathIndex][5].applyUpgrade();
                 maxedPath = true;    
