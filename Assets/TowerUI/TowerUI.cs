@@ -14,8 +14,14 @@ public class TowerUI : MonoBehaviour
     public Button exitButton;
     public GameObject targetMode;
     public Button leftSwitch;
-    public Button rightSwitch; 
-
+    public Button rightSwitch;
+    public Button[] pathButtons;
+    public TMP_Text[] pathCosts;
+    public TMP_Text[] pathTitles;
+    public Image[] Path1Up;
+    public Image[] Path2Up;
+    public Image[] Path3Up;
+    public Image[] Path4Up;
     public void callTargetModeRight()
     {
         Tower.selectedTower.GetComponent<Tower>().targetModeRight();

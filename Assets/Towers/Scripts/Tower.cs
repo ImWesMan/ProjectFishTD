@@ -12,7 +12,6 @@ public abstract class Tower : MonoBehaviour
     public bool animated;
     [SerializeField]
     public GameObject[] targets;
-    public abstract void Attack(GameObject fish);
     public string[] targetModes = { "First", "Last", "Strong" };
     public string targetMode;
     public int targetModeIndex;
@@ -27,6 +26,11 @@ public abstract class Tower : MonoBehaviour
     public string towerName;
     public int sellAmount;
     public bool attacks;
+    public int numOfUpgradePaths;
+    public Upgrade[][] towerUpgrades;
+
+    public abstract void Attack(GameObject fish);
+    public abstract void assignUpgrades();
     //See tower ranges for debug purposes
     protected virtual void OnDrawGizmosSelected()
     {
@@ -71,6 +75,7 @@ public abstract class Tower : MonoBehaviour
             targetMode = null;
             towerUI.GetComponent<TowerUI>().targetMode.SetActive(false); 
         }
+        gameObject.GetComponent<pathManager>().addButtonListeners(towerUI);
     }
 
     public void sellTower()
@@ -103,6 +108,7 @@ public abstract class Tower : MonoBehaviour
         towerUI.SetActive(true);
         rangeIndicator.transform.localScale = new Vector3(attackRange * 4 + 1, attackRange * 4 + 1, 1);
         rangeIndicator.SetActive(true);
+        gameObject.GetComponent<pathManager>().updatePaths(towerUI);
     }
 
     public void hideTowerUI()

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3724083404879215340}
   - component: {fileID: 3724083404879215339}
+  - component: {fileID: 661367300815196609}
   - component: {fileID: 3724083404879215338}
   - component: {fileID: 3724083404879215341}
   - component: {fileID: 3724083404879215336}
@@ -90,6 +91,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &661367300815196609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3724083404879215343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811b9ac5bf6a3f049973c89b89405ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradePaths: 
+  startedPaths: 0
+  pathEnabled: 
 --- !u!114 &3724083404879215338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,7 +124,12 @@ MonoBehaviour:
   rotates: 0
   animated: 1
   targets: []
+  targetModes:
+  - First
+  - Last
+  - Strong
   targetMode: First
+  targetModeIndex: 0
   levelManager: {fileID: 0}
   towerCost: 850
   isColliding: 1
@@ -118,6 +139,8 @@ MonoBehaviour:
   rangeIndicator: {fileID: 5692899562614758209}
   towerName: 
   sellAmount: 0
+  attacks: 0
+  numOfUpgradePaths: 0
 --- !u!95 &3724083404879215341
 Animator:
   serializedVersion: 4

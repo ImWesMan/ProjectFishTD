@@ -107,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5212002477369716259}
   - component: {fileID: 5212002477369716260}
+  - component: {fileID: 8413820754771511754}
   - component: {fileID: 5212002477369716258}
   - component: {fileID: 5212002477369716263}
   - component: {fileID: 5212002477369716264}
@@ -187,6 +188,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8413820754771511754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5212002477369716265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 811b9ac5bf6a3f049973c89b89405ae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradePaths: 
+  startedPaths: 0
+  pathEnabled: 
 --- !u!114 &5212002477369716258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +221,12 @@ MonoBehaviour:
   rotates: 0
   animated: 0
   targets: []
+  targetModes:
+  - First
+  - Last
+  - Strong
   targetMode: First
+  targetModeIndex: 0
   levelManager: {fileID: 0}
   towerCost: 1275
   isColliding: 1
@@ -215,6 +236,8 @@ MonoBehaviour:
   rangeIndicator: {fileID: 5202820420232987828}
   towerName: 
   sellAmount: 0
+  attacks: 0
+  numOfUpgradePaths: 0
 --- !u!58 &5212002477369716263
 CircleCollider2D:
   m_ObjectHideFlags: 0

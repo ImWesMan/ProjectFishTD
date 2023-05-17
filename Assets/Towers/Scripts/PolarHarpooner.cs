@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PolarHarpooner : Tower
 {
+    float slowDuration = 2.0f;
+    float slowAmount = 0.3f;
     public override void Attack(GameObject fish) 
     {
         // Check if the fish already has a harpoonSlow component attached
@@ -11,8 +13,8 @@ public class PolarHarpooner : Tower
         if (slowEffect == null) {
             // If not, add a new component and apply the slow effect
             slowEffect = fish.AddComponent<harpoonSlow>();
-            slowEffect.duration = 2.0f;
-            slowEffect.slowAmount = 0.3f;
+            slowEffect.duration = slowDuration;
+            slowEffect.slowAmount = slowAmount;
             slowEffect.ApplyEffect();
         }
         else {
@@ -25,7 +27,41 @@ public class PolarHarpooner : Tower
     
     }
 
-
+    public override void assignUpgrades()
+    {
+        towerUpgrades = new Upgrade[numOfUpgradePaths][];
+         //INITALIZE PATHS WITH LENGTH OF 6 UPGRADES
+        for(int i =0; i<numOfUpgradePaths; i++)
+        {
+            towerUpgrades[i] = new Upgrade[6];
+        }
+        //ASSIGN UPGRADES
+        towerUpgrades[0][0] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[1][0] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[2][0] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[3][0] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[0][1] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[1][1] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[2][1] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[3][1] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[0][2] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[1][2] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[2][2] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[3][2] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[0][3] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[1][3] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[2][3] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[3][3] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[0][4] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[1][4] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[2][4] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[3][4] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[0][5] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[1][5] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[2][5] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[3][5] = gameObject.AddComponent<attackSpeedUpgrade>();
+        //
+    }
     void Awake() 
     {
         this.attackDamage = 12;
@@ -36,6 +72,8 @@ public class PolarHarpooner : Tower
         this.animated = true;
         this.towerName = "Polar Harpooner";
         this.attacks = true;
+        this.numOfUpgradePaths = 4;
+        assignUpgrades();
     }
     
     void Update() 
