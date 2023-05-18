@@ -51,6 +51,8 @@ public class pathManager : MonoBehaviour
            towerUI.GetComponent<TowerUI>().pathTitles[i].text = selectedTowerUpgrades[i][upgradePaths[i]].name;
            //Set costs
            towerUI.GetComponent<TowerUI>().pathCosts[i].text = selectedTowerUpgrades[i][upgradePaths[i]].cost.ToString();
+           //Set descriptions
+           towerUI.GetComponent<TowerUI>().abilityDesc[i].text = selectedTowerUpgrades[i][upgradePaths[i]].effectString;
            }
            else
            {
