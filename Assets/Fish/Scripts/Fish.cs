@@ -11,12 +11,17 @@ public abstract class Fish : MonoBehaviour
     public string fishName;
     public float life;
     public float armor;
+    public bool hasArmor;
     public int waypointIncrement;
     [SerializeField]
     public float percentageProgress;
     void Start()
     {
         waypointIncrement = 100/gameObject.GetComponent<FishMovement>().path.GetComponent<Path>().points.Length;
+        if(armor > 0)
+        {
+            hasArmor = true;
+        }
     }
 
     public void IncrementPercentage()

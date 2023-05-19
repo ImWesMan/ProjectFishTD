@@ -10,6 +10,7 @@ public abstract class Tower : MonoBehaviour
     private float attackTimer;
     public bool rotates;
     public bool animated;
+    public bool hitsArmor;
     [SerializeField]
     public GameObject[] targets;
     public string[] targetModes = { "First", "Last", "Strong" };
@@ -205,7 +206,18 @@ public abstract class Tower : MonoBehaviour
         {
             gameObject.GetComponent<Animator>().SetTrigger("Attack");
         }
+        if(fish.GetComponent<Fish>().hasArmor == true && hitsArmor)
+        {
+            fish.GetComponent<Fish>().armor -= damage;
+            if(fish.GetComponent<Fish>().armor <= 0)
+            {
+                fish.GetComponent<Fish>().hasArmor = false;
+            }
+        }
+        else if(fish.GetComponent<Fish>().hasArmor == false)
+        {
         fish.GetComponent<Fish>().life -= damage;
+        }
         if(fish.GetComponent<Fish>().life <= 0)
         {
             kills++;

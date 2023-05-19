@@ -23,6 +23,7 @@ public class TowerUI : MonoBehaviour
     public Image[] Path3Up;
     public Image[] Path4Up;
     public TMP_Text[] abilityDesc;
+    public Image[] abilityIcons;
     public void callTargetModeRight()
     {
         Tower.selectedTower.GetComponent<Tower>().targetModeRight();

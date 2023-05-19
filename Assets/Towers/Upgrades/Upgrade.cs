@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public abstract class Upgrade : MonoBehaviour
 {
     public int cost;
@@ -13,4 +13,5 @@ public abstract class Upgrade : MonoBehaviour
     public int numberOnPath;
     public abstract void applyUpgrade();
     public abstract bool checkCost();
+    public Image icon;
 }
