@@ -204,6 +204,7 @@ public abstract class Tower : MonoBehaviour
         }
         if(animated)
         {
+            gameObject.GetComponent<Animator>().speed =  (1.75f/attackSpeed) - 1.05f;
             gameObject.GetComponent<Animator>().SetTrigger("Attack");
         }
         if(fish.GetComponent<Fish>().hasArmor == true && hitsArmor)

@@ -24,6 +24,32 @@ public class pathManager : MonoBehaviour
         }
     }
 
+    public void Update()
+    {
+        if(towersUI != null)
+        {
+            for(int i = 0;i< upgradePaths.Length; i++)
+            {
+                if(pathEnabled[i])
+                {
+                    if(selectedTowerUpgrades[i][upgradePaths[i]].cost > GameObject.Find("levelManager").GetComponent<levelManager>().money)
+                    {
+                        towersUI.GetComponent<TowerUI>().pathButtons[i].GetComponent<Image>().color = Color.black;
+                        towersUI.GetComponent<TowerUI>().pathButtons[i].interactable = false;                       
+                    }
+                    else
+                    {
+                        if(pathEnabled[i])
+                        {
+                        towersUI.GetComponent<TowerUI>().pathButtons[i].GetComponent<Image>().color = Color.white;
+                        towersUI.GetComponent<TowerUI>().pathButtons[i].interactable = true;   
+                        }
+                    } 
+                }
+            }
+        }    
+    }
+
     public void updatePaths(GameObject towerUI)
     {
         towersUI = towerUI;
@@ -53,6 +79,8 @@ public class pathManager : MonoBehaviour
            towerUI.GetComponent<TowerUI>().pathCosts[i].text = selectedTowerUpgrades[i][upgradePaths[i]].cost.ToString();
            //Set descriptions
            towerUI.GetComponent<TowerUI>().abilityDesc[i].text = selectedTowerUpgrades[i][upgradePaths[i]].effectString;
+           //Set icons
+           //towerUI.GetComponent<TowerUI>().abilityIcons[i].sprite = selectedTowerUpgrades[i][upgradePaths[i]].icon;
            }
            else
            {
