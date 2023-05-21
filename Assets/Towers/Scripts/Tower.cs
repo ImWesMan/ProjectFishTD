@@ -30,6 +30,7 @@ public abstract class Tower : MonoBehaviour
     public int numOfUpgradePaths;
     public Upgrade[][] towerUpgrades;
     public int towerWorth;
+    public float startingAttackSpeed;
 
     public abstract void Attack(GameObject fish);
     public abstract void assignUpgrades();
@@ -57,6 +58,7 @@ public abstract class Tower : MonoBehaviour
 
     public void Start()
     {
+        startingAttackSpeed = attackSpeed;
         this.sellAmount = Mathf.RoundToInt(towerCost * 0.70f);
         towerWorth = sellAmount;
         levelManager = GameObject.Find("levelManager");
@@ -113,10 +115,13 @@ public abstract class Tower : MonoBehaviour
 
     public void displayTowerUI()
     {
+        if(towerUI != null)
+        {
         towerUI.SetActive(true);
         rangeIndicator.transform.localScale = new Vector3(attackRange * 4 + 1, attackRange * 4 + 1, 1);
         rangeIndicator.SetActive(true);
         gameObject.GetComponent<pathManager>().updatePaths(towerUI);
+        }
     }
 
     public void recalculateRangeRadius()
@@ -204,7 +209,8 @@ public abstract class Tower : MonoBehaviour
         }
         if(animated)
         {
-            gameObject.GetComponent<Animator>().speed =  (1.75f/attackSpeed) - 1.05f;
+            float percentageIncrease = ((startingAttackSpeed - attackSpeed) / startingAttackSpeed);
+            gameObject.GetComponent<Animator>().speed =  1.00f + percentageIncrease;
             gameObject.GetComponent<Animator>().SetTrigger("Attack");
         }
         if(fish.GetComponent<Fish>().hasArmor == true && hitsArmor)
