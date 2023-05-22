@@ -10,7 +10,6 @@ public class FishMovement : MonoBehaviour
     [SerializeField]
     private int index;
     public GameObject levelManager;
-
     public Vector3 GetNextPosition() {
         return path.GetComponent<Path>().points[index].transform.position;
     }
@@ -64,5 +63,19 @@ public class FishMovement : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    
+
+        // Normalize the direction vector to ensure consistent rotation
+        if (direction.magnitude > 0)
+        {
+            direction.Normalize();
+
+            // Calculate the angle in degrees between the direction vector and the positive X-axis
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            angle += 90.0f;
+            // Apply the rotation around the Z-axis
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
+
     }
 }
