@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 public class attackSpeedUpgrade : Upgrade
 {
     GameObject levelManager;
@@ -8,13 +9,15 @@ public class attackSpeedUpgrade : Upgrade
     void Start()
     {
         this.cost = 300;
-        this.name = "Attack Speed";
+        this.name = "Rapid Reels";
         this.effectString = "Increase Fisherbears attack speed by 10%";
         this.parent = gameObject;
         this.upgradeSprite = null;
         this.path = 0;
         this.numberOnPath = 0;
         levelManager = GameObject.Find("levelManager");
+        Sprite abilityIcon = Resources.Load("rapidReels", typeof(Sprite)) as Sprite;
+        this.icon = abilityIcon;
     }
 
     public override void applyUpgrade()

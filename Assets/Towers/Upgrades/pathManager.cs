@@ -80,7 +80,7 @@ public class pathManager : MonoBehaviour
            //Set descriptions
            towerUI.GetComponent<TowerUI>().abilityDesc[i].text = selectedTowerUpgrades[i][upgradePaths[i]].effectString;
            //Set icons
-           //towerUI.GetComponent<TowerUI>().abilityIcons[i].sprite = selectedTowerUpgrades[i][upgradePaths[i]].icon;
+           towerUI.GetComponent<TowerUI>().abilityIcons[i].sprite = selectedTowerUpgrades[i][upgradePaths[i]].icon;
            }
            else
            {

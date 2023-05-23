@@ -13,5 +13,5 @@ public abstract class Upgrade : MonoBehaviour
     public int numberOnPath;
     public abstract void applyUpgrade();
     public abstract bool checkCost();
-    public Image icon;
+    public Sprite icon;
 }

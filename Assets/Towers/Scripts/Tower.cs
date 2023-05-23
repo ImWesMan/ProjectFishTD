@@ -199,6 +199,7 @@ public abstract class Tower : MonoBehaviour
     }
     protected void DamageFish(GameObject fish, float damage)
     {
+        fish.GetComponent<Fish>().deathSound.PlayOneShot(fish.GetComponent<Fish>().deathSound.clip, 1.0f);
         if(rotates)
         {
         Vector3 targetDirection = fish.transform.position - transform.position; // Calculate the direction to the target
@@ -228,7 +229,6 @@ public abstract class Tower : MonoBehaviour
         if(fish.GetComponent<Fish>().life <= 0)
         {
             kills++;
-            fish.GetComponent<Fish>().deathSound.Play();
             levelManager.GetComponent<levelManager>().addMoney(fish);
             Debug.Log("A fish died");
             Destroy(fish);
