@@ -16,7 +16,7 @@ public class attackSpeedUpgrade : Upgrade
         this.path = 0;
         this.numberOnPath = 0;
         levelManager = GameObject.Find("levelManager");
-        Sprite abilityIcon = Resources.Load("rapidReels", typeof(Sprite)) as Sprite;
+        Sprite abilityIcon = Resources.Load("rapidReels2", typeof(Sprite)) as Sprite;
         this.icon = abilityIcon;
     }
 
