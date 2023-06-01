@@ -11,6 +11,7 @@ public abstract class Tower : MonoBehaviour
     public bool rotates;
     public bool animated;
     public bool hitsArmor;
+    public bool hitsHidden;
     [SerializeField]
     public GameObject[] targets;
     public string[] targetModes = { "First", "Last", "Strong" };
@@ -197,7 +198,7 @@ public abstract class Tower : MonoBehaviour
             }
         }
     }
-    protected void DamageFish(GameObject fish, float damage)
+    protected bool DamageFish(GameObject fish, float damage)
     {
         fish.GetComponent<Fish>().deathSound.PlayOneShot(fish.GetComponent<Fish>().deathSound.clip, 1.0f);
         if(rotates)
@@ -232,7 +233,9 @@ public abstract class Tower : MonoBehaviour
             levelManager.GetComponent<levelManager>().addMoney(fish);
             Debug.Log("A fish died");
             Destroy(fish);
+            return true;
         }
+        return false;
     }
 
     public void sortTargets()

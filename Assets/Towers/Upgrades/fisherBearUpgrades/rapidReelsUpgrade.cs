@@ -1,27 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class rangeUpgrade : Upgrade
+using UnityEngine.UI;
+public class rapidReelsUpgrade : Upgrade
 {
     GameObject levelManager;
     // Start is called before the first frame update
     void Start()
     {
-        this.cost = 450;
-        this.name = "Range";
-        this.effectString = "Increase Fisherbears range";
+        this.cost = 300;
+        this.name = "Rapid Reels";
+        this.effectString = "Increase Fisherbears attack speed by 10%";
         this.parent = gameObject;
         this.upgradeSprite = null;
-        this.path = 1;
+        this.path = 0;
         this.numberOnPath = 0;
         levelManager = GameObject.Find("levelManager");
+        Sprite abilityIcon = Resources.Load("rapidReels2", typeof(Sprite)) as Sprite;
+        this.icon = abilityIcon;
     }
 
     public override void applyUpgrade()
     {
         levelManager.GetComponent<levelManager>().subtractMoney(this.cost);
-        gameObject.GetComponent<Tower>().attackRange = 5.0f;
-        gameObject.GetComponent<Tower>().recalculateRangeRadius();
+        gameObject.GetComponent<Tower>().attackSpeed -= gameObject.GetComponent<Tower>().attackSpeed * .10f;
     }
     public override bool checkCost()
     {

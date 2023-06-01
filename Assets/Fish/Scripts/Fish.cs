@@ -12,6 +12,7 @@ public abstract class Fish : MonoBehaviour
     public float life;
     public float armor;
     public bool hasArmor;
+    public bool isHidden;
     public int waypointIncrement;
     [SerializeField]
     public float percentageProgress;

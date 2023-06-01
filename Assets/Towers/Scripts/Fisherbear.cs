@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Fisherbear : Tower
 {
-
+    public int extraIncome;
     public override void Attack(GameObject fish) 
     {
-        DamageFish(fish, gameObject.GetComponent<Tower>().attackDamage);
+        bool fishDied = DamageFish(fish, gameObject.GetComponent<Tower>().attackDamage);
+        if(fishDied && extraIncome != 0)
+        {
+            GameObject.Find("levelManager").GetComponent<levelManager>().addMoney(extraIncome);
+        }
         Debug.Log("Fisherbear is attacking!!!!");
     }
 
@@ -20,30 +24,30 @@ public class Fisherbear : Tower
             towerUpgrades[i] = new Upgrade[6];
         }
         //ASSIGN UPGRADES
-        towerUpgrades[0][0] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[1][0] = gameObject.AddComponent<rangeUpgrade>();
-        towerUpgrades[2][0] = gameObject.AddComponent<damageUpgrade>();
-        towerUpgrades[3][0] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[0][1] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[1][1] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[2][1] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[3][1] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[0][2] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[1][2] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[2][2] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[3][2] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[0][3] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[1][3] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[2][3] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[3][3] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[0][4] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[1][4] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[2][4] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[3][4] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[0][5] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[1][5] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[2][5] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[3][5] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[0][0] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[1][0] = gameObject.AddComponent<biggerSpoolsUpgrade>();
+        towerUpgrades[2][0] = gameObject.AddComponent<barbedHooksUpgrade>();
+        towerUpgrades[3][0] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[0][1] = gameObject.AddComponent<lightweightRodUpgrade>();
+        towerUpgrades[1][1] = gameObject.AddComponent<fisherbearsDomainUpgrade>();
+        towerUpgrades[2][1] = gameObject.AddComponent<fisherbearsPatienceUpgrade>();
+        towerUpgrades[3][1] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[0][2] = gameObject.AddComponent<fisherbearsLuckUpgrade>();
+        towerUpgrades[1][2] = gameObject.AddComponent<fisherbearsInstinctUpgrade>();
+        towerUpgrades[2][2] = gameObject.AddComponent<moltenHooksUpgrade>();
+        towerUpgrades[3][2] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[0][3] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[1][3] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[2][3] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[3][3] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[0][4] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[1][4] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[2][4] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[3][4] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[0][5] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[1][5] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[2][5] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[3][5] = gameObject.AddComponent<rapidReelsUpgrade>();
 
         //
 
@@ -59,6 +63,7 @@ public class Fisherbear : Tower
         this.towerName = "Fisherbear";
         this.attacks = true;
         this.numOfUpgradePaths = 4;
+        this.extraIncome = 0;
         assignUpgrades();
     }
 

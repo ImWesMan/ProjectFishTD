@@ -36,30 +36,30 @@ public class PolarHarpooner : Tower
             towerUpgrades[i] = new Upgrade[6];
         }
         //ASSIGN UPGRADES
-        towerUpgrades[0][0] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[1][0] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[2][0] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[3][0] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[0][1] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[1][1] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[2][1] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[3][1] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[0][2] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[1][2] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[2][2] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[3][2] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[0][3] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[1][3] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[2][3] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[3][3] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[0][4] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[1][4] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[2][4] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[3][4] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[0][5] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[1][5] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[2][5] = gameObject.AddComponent<attackSpeedUpgrade>();
-        towerUpgrades[3][5] = gameObject.AddComponent<attackSpeedUpgrade>();
+        towerUpgrades[0][0] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[1][0] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[2][0] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[3][0] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[0][1] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[1][1] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[2][1] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[3][1] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[0][2] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[1][2] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[2][2] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[3][2] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[0][3] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[1][3] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[2][3] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[3][3] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[0][4] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[1][4] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[2][4] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[3][4] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[0][5] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[1][5] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[2][5] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[3][5] = gameObject.AddComponent<rapidReelsUpgrade>();
         //
     }
     void Awake() 

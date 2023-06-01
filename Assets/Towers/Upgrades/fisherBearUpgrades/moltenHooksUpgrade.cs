@@ -1,26 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class damageUpgrade : Upgrade
+using UnityEngine.UI;
+public class moltenHooksUpgrade : Upgrade
 {
     GameObject levelManager;
     // Start is called before the first frame update
     void Start()
     {
-        this.cost = 250;
-        this.name = "Damage";
-        this.effectString = "Increase Fisherbears damage";
+        this.cost = 800;
+        this.name = "Molten Hooks";
+        this.effectString = "Allows Fisherbear to hit armor";
         this.parent = gameObject;
         this.upgradeSprite = null;
         this.path = 2;
-        this.numberOnPath = 0;
+        this.numberOnPath = 2;
         levelManager = GameObject.Find("levelManager");
+        Sprite abilityIcon = Resources.Load("rapidReels2", typeof(Sprite)) as Sprite;
+        this.icon = abilityIcon;
     }
 
     public override void applyUpgrade()
     {
         levelManager.GetComponent<levelManager>().subtractMoney(this.cost);
-        gameObject.GetComponent<Tower>().attackDamage = 14.0f;
+        gameObject.GetComponent<Tower>().hitsArmor = true;
     }
     public override bool checkCost()
     {
