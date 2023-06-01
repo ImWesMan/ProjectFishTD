@@ -16,8 +16,8 @@ public class rapidReelsUpgrade : Upgrade
         this.path = 0;
         this.numberOnPath = 0;
         levelManager = GameObject.Find("levelManager");
-        Sprite abilityIcon = Resources.Load("rapidReels2", typeof(Sprite)) as Sprite;
-        this.icon = abilityIcon;
+        //Sprite abilityIcon = Resources.Load("rapidReels2", typeof(Sprite)) as Sprite;
+        //this.icon = abilityIcon;
     }
 
     public override void applyUpgrade()

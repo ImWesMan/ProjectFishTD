@@ -13,10 +13,14 @@ public class OptionsUI : MonoBehaviour
     public Toggle autostartToggle;
     public Slider MASTERslider;
     public AudioMixer mixer;
+    public Toggle fasterToggle;
     private bool isPaused = false;
+    public float timeScale;
     public void Start()
     {
         checkAutoStartState();
+        checkFasterState();
+        timeScale = 1;
     }
 
     public void OnEnable()
@@ -35,7 +39,7 @@ public class OptionsUI : MonoBehaviour
     {
         // Resume the game when options UI is disabled
         isPaused = false;
-        Time.timeScale = 1;
+        Time.timeScale = timeScale;
     }
 
     public void checkAutoStartState()
@@ -45,9 +49,29 @@ public class OptionsUI : MonoBehaviour
         autostartToggle.onValueChanged.AddListener(delegate { autoStartToggle(); });
     }
 
+    public void checkFasterState()
+    {
+        bool faster = GameObject.Find("roundManager").GetComponent<roundManager>().faster;
+        fasterToggle.isOn = faster;
+        fasterToggle.onValueChanged.AddListener(delegate { fasterGameToggle(); });
+    }
+
     public void autoStartToggle()
     {
         GameObject.Find("roundManager").GetComponent<roundManager>().autoStart = !GameObject.Find("roundManager").GetComponent<roundManager>().autoStart;
+    }
+
+    public void fasterGameToggle()
+    {
+        GameObject.Find("roundManager").GetComponent<roundManager>().faster = !GameObject.Find("roundManager").GetComponent<roundManager>().faster;
+        if(GameObject.Find("roundManager").GetComponent<roundManager>().faster)
+        {
+            timeScale = 1.5f;
+        }
+        else
+        {
+            timeScale = 1;
+        }
     }
 
     public void OnSFXVolumeChanged()

@@ -8,6 +8,7 @@ public class roundManager : MonoBehaviour
     public GameObject levelManager;
     public int currentRound;
     public bool autoStart = false;
+    public bool faster = false;
     [SerializeField]
     public Button startButton;
     public bool checkingForRoundEnd = false;

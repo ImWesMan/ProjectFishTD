@@ -203,6 +203,8 @@ MonoBehaviour:
   upgradePaths: 
   startedPaths: 0
   pathEnabled: 
+  towersUI: {fileID: 0}
+  maxedPath: 0
 --- !u!114 &5212002477369716258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +222,8 @@ MonoBehaviour:
   attackSpeed: 0
   rotates: 0
   animated: 0
+  hitsArmor: 0
+  hitsHidden: 0
   targets: []
   targetModes:
   - First
@@ -228,7 +232,7 @@ MonoBehaviour:
   targetMode: First
   targetModeIndex: 0
   levelManager: {fileID: 0}
-  towerCost: 1275
+  towerCost: 950
   isColliding: 1
   kills: 0
   towerUIPrefab: {fileID: 1727534751244990004, guid: 400b3f163e017d74f9181812c009701d, type: 3}
@@ -238,6 +242,8 @@ MonoBehaviour:
   sellAmount: 0
   attacks: 0
   numOfUpgradePaths: 0
+  towerWorth: 0
+  startingAttackSpeed: 0
 --- !u!58 &5212002477369716263
 CircleCollider2D:
   m_ObjectHideFlags: 0

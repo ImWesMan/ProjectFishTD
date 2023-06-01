@@ -16,8 +16,6 @@ public class moltenHooksUpgrade : Upgrade
         this.path = 2;
         this.numberOnPath = 2;
         levelManager = GameObject.Find("levelManager");
-        Sprite abilityIcon = Resources.Load("rapidReels2", typeof(Sprite)) as Sprite;
-        this.icon = abilityIcon;
     }
 
     public override void applyUpgrade()

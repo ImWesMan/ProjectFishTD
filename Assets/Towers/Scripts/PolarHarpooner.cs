@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PolarHarpooner : Tower
 {
-    float slowDuration = 2.0f;
+    float slowDuration = 2.5f;
     float slowAmount = 0.3f;
     public override void Attack(GameObject fish) 
     {
@@ -64,11 +64,11 @@ public class PolarHarpooner : Tower
     }
     void Awake() 
     {
-        this.attackDamage = 12;
+        this.attackDamage = 14;
         this.attackRange = 5.5f;
         this.attackSpeed = 1.50f;
         this.rotates = true;
-        this.towerCost = 1275;
+        this.towerCost = 950;
         this.animated = true;
         this.towerName = "Polar Harpooner";
         this.attacks = true;
