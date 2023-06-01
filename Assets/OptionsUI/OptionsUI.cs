@@ -21,7 +21,8 @@ public class OptionsUI : MonoBehaviour
         checkAutoStartState();
         checkFasterState();
         timeScale = 1;
-    }
+    }   
+
 
     public void OnEnable()
     {

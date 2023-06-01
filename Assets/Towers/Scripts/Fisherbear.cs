@@ -36,8 +36,8 @@ public class Fisherbear : Tower
         towerUpgrades[1][2] = gameObject.AddComponent<fisherbearsInstinctUpgrade>();
         towerUpgrades[2][2] = gameObject.AddComponent<moltenHooksUpgrade>();
         towerUpgrades[3][2] = gameObject.AddComponent<rapidReelsUpgrade>();
-        towerUpgrades[0][3] = gameObject.AddComponent<rapidReelsUpgrade>();
-        towerUpgrades[1][3] = gameObject.AddComponent<rapidReelsUpgrade>();
+        towerUpgrades[0][3] = gameObject.AddComponent<mechaRodUpgrade>();
+        towerUpgrades[1][3] = gameObject.AddComponent<fisherbearAllianceUpgrade>();
         towerUpgrades[2][3] = gameObject.AddComponent<rapidReelsUpgrade>();
         towerUpgrades[3][3] = gameObject.AddComponent<rapidReelsUpgrade>();
         towerUpgrades[0][4] = gameObject.AddComponent<rapidReelsUpgrade>();

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PolarHarpooner : Tower
 {
-    float slowDuration = 2.5f;
-    float slowAmount = 0.3f;
+    float slowDuration = 2.75f;
+    float slowAmount = 0.35f;
     public override void Attack(GameObject fish) 
     {
         // Check if the fish already has a harpoonSlow component attached
@@ -66,7 +66,7 @@ public class PolarHarpooner : Tower
     {
         this.attackDamage = 14;
         this.attackRange = 5.5f;
-        this.attackSpeed = 1.50f;
+        this.attackSpeed = 1.35f;
         this.rotates = true;
         this.towerCost = 950;
         this.animated = true;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 public class levelManager : MonoBehaviour
 {
     public GameObject roundManager;
@@ -15,7 +15,7 @@ public class levelManager : MonoBehaviour
     void Start()
     {
         lives = 100;
-        money = 1800;
+        money = 10000;
         livesText.text = lives.ToString();
         moneyText.text = money.ToString();
     }
@@ -58,4 +58,9 @@ public class levelManager : MonoBehaviour
         roundText.text = roundManager.GetComponent<roundManager>().currentRound.ToString();
     }
 
+    public void restartScene()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+    }
 }

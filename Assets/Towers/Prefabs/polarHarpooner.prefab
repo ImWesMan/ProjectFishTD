@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 5212002477369716257}
   m_Layer: 0
   m_Name: polarHarpooner
-  m_TagString: Untagged
+  m_TagString: polarharpooner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3724083404879215337}
   m_Layer: 0
   m_Name: fisherBear
-  m_TagString: Untagged
+  m_TagString: fisherbear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   rotates: 0
   animated: 1
   hitsArmor: 0
+  hitsHidden: 0
   targets: []
   targetModes:
   - First
@@ -146,6 +147,7 @@ MonoBehaviour:
   numOfUpgradePaths: 0
   towerWorth: 0
   startingAttackSpeed: 0
+  extraIncome: 0
 --- !u!95 &3724083404879215341
 Animator:
   serializedVersion: 4

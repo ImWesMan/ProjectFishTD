@@ -9,6 +9,8 @@ TagManager:
   - Path
   - Decor
   - TowerPlacement
+  - fisherbear
+  - polarharpooner
   layers:
   - Default
   - TransparentFX
