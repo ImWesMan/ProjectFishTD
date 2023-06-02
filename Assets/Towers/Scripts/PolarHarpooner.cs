@@ -73,6 +73,7 @@ public class PolarHarpooner : Tower
         this.towerName = "Polar Harpooner";
         this.attacks = true;
         this.numOfUpgradePaths = 4;
+        this.hitsArmor = true;
         assignUpgrades();
     }
     

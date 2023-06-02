@@ -66,6 +66,7 @@ public class Fisherbear : Tower
         this.extraIncome = 0;
         assignUpgrades();
     }
+    
 
     void Update()
     {

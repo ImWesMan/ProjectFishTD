@@ -6,6 +6,7 @@ public class fisherbearAllianceUpgrade : Upgrade
 {
     GameObject levelManager;
     int previousFisherbearCount;
+    bool purchased;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,31 +19,39 @@ public class fisherbearAllianceUpgrade : Upgrade
         this.numberOnPath = 3;
         levelManager = GameObject.Find("levelManager");
         previousFisherbearCount = 0;
+        purchased = false;
         //Sprite abilityIcon = Resources.Load("rapidReels2", typeof(Sprite)) as Sprite;
         //this.icon = abilityIcon;
     }
-    
+
     void Update()
     {
+        if(purchased)
+        {
         applyUpgrade();
+        }
     }
-
     public override void applyUpgrade()
     {
         int fisherbearCount = 0;
         GameObject[] fisherbearObjects = GameObject.FindGameObjectsWithTag("fisherbear");
         foreach (GameObject tower in fisherbearObjects)
         {
-            if (tower != gameObject && Vector3.Distance(transform.position, tower.transform.position) <= gameObject.GetComponent<Tower>().attackRange)
+            if (tower != gameObject && tower.GetComponent<Tower>().enabled && Vector3.Distance(transform.position, tower.transform.position) <= gameObject.GetComponent<Tower>().attackRange)
             {
                 fisherbearCount++;
             }
         }
-        Debug.Log(fisherbearCount);
         int countDifference = fisherbearCount - previousFisherbearCount;
+        if(countDifference == 0)
+        {
+            purchased = true;
+            return;
+        }
         previousFisherbearCount = fisherbearCount; // Update the previous count
         gameObject.GetComponent<Tower>().attackSpeed -= countDifference * 0.025f;
         gameObject.GetComponent<Tower>().attackDamage += countDifference * 3;
+        purchased = true;
     }
     public override bool checkCost()
     {
