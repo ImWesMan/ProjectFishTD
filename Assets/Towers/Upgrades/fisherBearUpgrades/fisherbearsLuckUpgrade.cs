@@ -21,7 +21,7 @@ public class fisherbearsLuckUpgrade : Upgrade
     public override void applyUpgrade()
     {
         levelManager.GetComponent<levelManager>().subtractMoney(this.cost);
-        gameObject.GetComponent<Fisherbear>().extraIncome = 5;
+        gameObject.GetComponent<Fisherbear>().extraIncome = 3;
     }
     public override bool checkCost()
     {

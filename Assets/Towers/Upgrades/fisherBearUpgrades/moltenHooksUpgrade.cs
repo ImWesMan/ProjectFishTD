@@ -10,7 +10,7 @@ public class moltenHooksUpgrade : Upgrade
     {
         this.cost = 800;
         this.name = "Molten Hooks";
-        this.effectString = "Allows Fisherbear to hit armor";
+        this.effectString = "Allows Fisherbear to hit armor, increases damage";
         this.parent = gameObject;
         this.upgradeSprite = null;
         this.path = 2;
@@ -22,6 +22,7 @@ public class moltenHooksUpgrade : Upgrade
     {
         levelManager.GetComponent<levelManager>().subtractMoney(this.cost);
         gameObject.GetComponent<Tower>().hitsArmor = true;
+        gameObject.GetComponent<Tower>().attackDamage = 20;
     }
     public override bool checkCost()
     {
