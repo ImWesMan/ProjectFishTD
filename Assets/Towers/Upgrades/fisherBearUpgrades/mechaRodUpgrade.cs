@@ -22,7 +22,7 @@ public class mechaRodUpgrade : Upgrade
     {
         levelManager.GetComponent<levelManager>().subtractMoney(this.cost);
         gameObject.GetComponent<Tower>().attackSpeed -= gameObject.GetComponent<Tower>().attackSpeed * .15f;
-        gameObject.GetComponent<Tower>().attackDamage = 18;
+        gameObject.GetComponent<Tower>().attackDamage += 5.0f;
     }
     public override bool checkCost()
     {

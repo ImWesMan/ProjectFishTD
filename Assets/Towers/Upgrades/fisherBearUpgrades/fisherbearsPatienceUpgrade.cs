@@ -20,7 +20,7 @@ public class fisherbearsPatienceUpgrade : Upgrade
     public override void applyUpgrade()
     {
         levelManager.GetComponent<levelManager>().subtractMoney(this.cost);
-        gameObject.GetComponent<Tower>().attackDamage = 18.0f;
+        gameObject.GetComponent<Tower>().attackDamage += 4.0f;
     }
     public override bool checkCost()
     {

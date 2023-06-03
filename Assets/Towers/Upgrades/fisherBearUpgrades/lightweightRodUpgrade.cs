@@ -10,7 +10,7 @@ public class lightweightRodUpgrade : Upgrade
     {
         this.cost = 600;
         this.name = "Lightweight Rod";
-        this.effectString = "Further increases Fisherbears attack speed by another 15%";
+        this.effectString = "Further increases Fisherbears attack speed by another 10%";
         this.parent = gameObject;
         this.upgradeSprite = null;
         this.path = 0;
@@ -21,7 +21,7 @@ public class lightweightRodUpgrade : Upgrade
     public override void applyUpgrade()
     {
         levelManager.GetComponent<levelManager>().subtractMoney(this.cost);
-        gameObject.GetComponent<Tower>().attackSpeed -= gameObject.GetComponent<Tower>().attackSpeed * .15f;
+        gameObject.GetComponent<Tower>().attackSpeed -= gameObject.GetComponent<Tower>().attackSpeed * .10f;
     }
     public override bool checkCost()
     {

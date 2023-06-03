@@ -20,7 +20,7 @@ public class barbedHooksUpgrade : Upgrade
     public override void applyUpgrade()
     {
         levelManager.GetComponent<levelManager>().subtractMoney(this.cost);
-        gameObject.GetComponent<Tower>().attackDamage = 14.0f;
+        gameObject.GetComponent<Tower>().attackDamage += 4.0f;
     }
     public override bool checkCost()
     {

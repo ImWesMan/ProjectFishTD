@@ -22,7 +22,7 @@ public class moltenHooksUpgrade : Upgrade
     {
         levelManager.GetComponent<levelManager>().subtractMoney(this.cost);
         gameObject.GetComponent<Tower>().hitsArmor = true;
-        gameObject.GetComponent<Tower>().attackDamage = 20;
+        gameObject.GetComponent<Tower>().attackDamage += 2.0f;
     }
     public override bool checkCost()
     {
