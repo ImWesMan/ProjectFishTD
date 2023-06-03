@@ -18,6 +18,7 @@ public class levelManager : MonoBehaviour
         money = 1800;
         livesText.text = lives.ToString();
         moneyText.text = money.ToString();
+        Time.timeScale = 1.5f;
     }
 
     public void subtractLives(GameObject fish)

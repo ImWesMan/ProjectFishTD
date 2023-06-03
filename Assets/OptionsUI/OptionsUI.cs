@@ -20,10 +20,9 @@ public class OptionsUI : MonoBehaviour
     {
         checkAutoStartState();
         checkFasterState();
-        timeScale = 1;
+        timeScale = 1.5f;
     }   
-
-
+    
     public void OnEnable()
     {
         // Pause the game when options UI is enabled
@@ -67,11 +66,11 @@ public class OptionsUI : MonoBehaviour
         GameObject.Find("roundManager").GetComponent<roundManager>().faster = !GameObject.Find("roundManager").GetComponent<roundManager>().faster;
         if(GameObject.Find("roundManager").GetComponent<roundManager>().faster)
         {
-            timeScale = 1.5f;
+            timeScale = 3.0f;
         }
         else
         {
-            timeScale = 1;
+            timeScale = 1.5f;
         }
     }
 
