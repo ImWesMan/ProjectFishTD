@@ -7,7 +7,7 @@ public class blitzFish : Fish
     void Awake() 
     {
         this.movementSpeed = 4.0f;
-        this.worthAmount = 12;
+        this.worthAmount = 10;
         this.lifeCost = 3;
         this.fishName = "Blitz Fish";
         this.life = 15.00f;

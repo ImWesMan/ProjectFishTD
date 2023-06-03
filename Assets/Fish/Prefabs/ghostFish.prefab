@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1397796917931429887}
   - component: {fileID: 1397796917931429886}
   - component: {fileID: 1397796917931429873}
-  - component: {fileID: 1397796917931429872}
+  - component: {fileID: 7574792960808167515}
   m_Layer: 0
-  m_Name: behemothFish
+  m_Name: ghostFish
   m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1397796917931429875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.61, y: -14.64, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 75322e40848d00b43a5c6b5f4d5a9710, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6228af26e636eb348adc17777ff784be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
   path: {fileID: 0}
   index: 0
   levelManager: {fileID: 0}
---- !u!114 &1397796917931429872
+--- !u!114 &7574792960808167515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1397796917931429875}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47d47be38a3ae8249a08cc675673f3f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5d0e928c230c3f842a0d68b9e10f298f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   deathSound: {fileID: 0}

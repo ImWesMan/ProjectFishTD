@@ -21,6 +21,9 @@ public class fishSpawner : MonoBehaviour
     public GameObject basicFish;
     public GameObject behemothFish;
     public GameObject blitzFish;
+    public GameObject swarmerFish;
+    public GameObject armoredFish;
+    public GameObject ghostFish;
     public List<RoundInfo> roundInfoList = new List<RoundInfo>();
     public Dictionary<string, GameObject> fishTypeToPrefab = new Dictionary<string, GameObject>();
     public Dictionary<string, float> fishTypeToSpawnDelays = new Dictionary<string, float>();
@@ -30,9 +33,15 @@ public class fishSpawner : MonoBehaviour
         fishTypeToPrefab.Add("basicFish", basicFish);
         fishTypeToPrefab.Add("behemothFish", behemothFish);
         fishTypeToPrefab.Add("blitzFish", blitzFish);
+        fishTypeToPrefab.Add("swarmerFish", swarmerFish);
+        fishTypeToPrefab.Add("armoredFish", armoredFish);
+        fishTypeToPrefab.Add("ghostFish", ghostFish);
         fishTypeToSpawnDelays.Add("basicFish", 0.65f);
         fishTypeToSpawnDelays.Add("behemothFish", 1.0f);
         fishTypeToSpawnDelays.Add("blitzFish", 0.6f);
+        fishTypeToSpawnDelays.Add("swarmerFish", 0.25f);
+        fishTypeToSpawnDelays.Add("armoredFish", 1.25f);
+        fishTypeToSpawnDelays.Add("ghostFish", 0.75f);
     }
 
     void Start()
@@ -137,9 +146,15 @@ public class fishSpawner : MonoBehaviour
         RoundInfo round11 = new RoundInfo();
         round11.fishList = new List<FishInfo>();
         round11.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10});
-        round11.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 5});
+        round11.fishList.Add(new FishInfo { fishType = "swarmerFish", quantity = 15});
         round11.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10});
         round11.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 5});
+        round11.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10 });
+        round11.fishList.Add(new FishInfo { fishType = "swarmerFish", quantity = 10});
+        round11.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10});
+        round11.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 5});
+        round11.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10});
+        round11.fishList.Add(new FishInfo { fishType = "swarmerFish", quantity = 20});
         round11.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10 });
         round11.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 5});
         round11.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10});
@@ -149,13 +164,7 @@ public class fishSpawner : MonoBehaviour
         round11.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10 });
         round11.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 5});
         round11.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10});
-        round11.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 5});
-        round11.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10});
-        round11.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 5});
-        round11.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10 });
-        round11.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 5});
-        round11.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10});
-        round11.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 5});
+        round11.fishList.Add(new FishInfo { fishType = "swarmerFish", quantity = 15});
         round11.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10});
         round11.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 5});
         round11.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10 });
@@ -168,7 +177,64 @@ public class fishSpawner : MonoBehaviour
         round11.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 5});
         roundInfoList.Add(round11);
 
-        
+        RoundInfo round12 = new RoundInfo();
+        round12.fishList = new List<FishInfo>();
+        round12.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 20});
+        round12.fishList.Add(new FishInfo { fishType = "armoredFish", quantity = 6});
+        round12.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 5});
+        round12.fishList.Add(new FishInfo { fishType = "blitzFish", quantity = 10});
+        round12.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 15});
+        round12.fishList.Add(new FishInfo { fishType = "armoredFish", quantity = 6});
+        round12.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 15});
+        round12.fishList.Add(new FishInfo { fishType = "blitzFish", quantity = 13 });
+        round12.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 30});
+        round12.fishList.Add(new FishInfo { fishType = "blitzFish", quantity = 10 });
+        round12.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 15});
+        round12.fishList.Add(new FishInfo { fishType = "armoredFish", quantity = 6});
+        roundInfoList.Add(round12);
+
+        RoundInfo round13 = new RoundInfo();
+        round13.fishList = new List<FishInfo>();
+        round13.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 15});
+        round13.fishList.Add(new FishInfo { fishType = "swarmerFish", quantity = 20});
+        round13.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 15});
+        round13.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 10});
+        round13.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 15 });
+        round13.fishList.Add(new FishInfo { fishType = "swarmerFish", quantity = 15});
+        round13.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 15});
+        round13.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 10});
+        round13.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 15});
+        round13.fishList.Add(new FishInfo { fishType = "swarmerFish", quantity = 25});
+        round13.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 15 });
+        round13.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 10});
+        round13.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 15});
+        round13.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 10});
+        round13.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 15});
+        round13.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 10});
+        round13.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 15 });
+        round13.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 10});
+        round13.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 15});
+        round13.fishList.Add(new FishInfo { fishType = "swarmerFish", quantity = 20});
+        round13.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 15});
+        round13.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 10});
+        round13.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 15 });
+        round13.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 10});
+        round13.fishList.Add(new FishInfo { fishType = "basicFish", quantity = 10});
+        roundInfoList.Add(round13);
+
+        RoundInfo round14 = new RoundInfo();
+        round14.fishList = new List<FishInfo>();
+        round14.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 20});
+        round14.fishList.Add(new FishInfo { fishType = "ghostFish", quantity = 12});
+        round14.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 5});
+        round14.fishList.Add(new FishInfo { fishType = "blitzFish", quantity = 10});
+        round14.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 15});
+        round14.fishList.Add(new FishInfo { fishType = "ghostFish", quantity = 12});
+        round14.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 15});
+        round14.fishList.Add(new FishInfo { fishType = "blitzFish", quantity = 13 });
+        round14.fishList.Add(new FishInfo { fishType = "behemothFish", quantity = 30});
+        round14.fishList.Add(new FishInfo { fishType = "ghostFish", quantity = 12});
+        roundInfoList.Add(round14);
     }
 
    public void startRound(int currentRound)

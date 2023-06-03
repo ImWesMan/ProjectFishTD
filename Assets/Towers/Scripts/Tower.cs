@@ -215,17 +215,35 @@ public abstract class Tower : MonoBehaviour
             gameObject.GetComponent<Animator>().speed =  1.00f + percentageIncrease;
             gameObject.GetComponent<Animator>().SetTrigger("Attack");
         }
-        if(fish.GetComponent<Fish>().hasArmor == true && hitsArmor)
+        if(fish.GetComponent<Fish>().isHidden == true && hitsHidden)
         {
-            fish.GetComponent<Fish>().armor -= damage;
-            if(fish.GetComponent<Fish>().armor <= 0)
+            if(fish.GetComponent<Fish>().hasArmor == true && hitsArmor)
             {
-                fish.GetComponent<Fish>().hasArmor = false;
+                fish.GetComponent<Fish>().armor -= damage;
+                if(fish.GetComponent<Fish>().armor <= 0)
+                {
+                    fish.GetComponent<Fish>().hasArmor = false;
+                }
+            }
+            else if(fish.GetComponent<Fish>().hasArmor == false)
+            {
+            fish.GetComponent<Fish>().life -= damage;
             }
         }
-        else if(fish.GetComponent<Fish>().hasArmor == false)
+        else if(fish.GetComponent<Fish>().isHidden == false)
         {
-        fish.GetComponent<Fish>().life -= damage;
+            if(fish.GetComponent<Fish>().hasArmor == true && hitsArmor)
+            {
+                fish.GetComponent<Fish>().armor -= damage;
+                if(fish.GetComponent<Fish>().armor <= 0)
+                {
+                    fish.GetComponent<Fish>().hasArmor = false;
+                }
+            }
+            else if(fish.GetComponent<Fish>().hasArmor == false)
+            {
+            fish.GetComponent<Fish>().life -= damage;
+            }
         }
         if(fish.GetComponent<Fish>().life <= 0)
         {

@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class basicFish : Fish
+public class ghostFish : Fish
 {
     void Awake() 
     {
-        this.movementSpeed = 3.25f;
-        this.worthAmount = 5;
-        this.lifeCost = 1;
-        this.fishName = "Fish";
-        this.life = 10.00f;
+        this.movementSpeed = 2.95f;
+        this.worthAmount = 8;
+        this.lifeCost = 4;
+        this.fishName = "Ghost Fish";
+        this.life = 20.00f;
         this.armor = 0.00f;
+        this.isHidden = true;
         this.deathSound = GameObject.Find("fishCaught").GetComponent<AudioSource>();
     }
 }

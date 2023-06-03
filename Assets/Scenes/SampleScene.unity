@@ -5150,6 +5150,9 @@ MonoBehaviour:
   basicFish: {fileID: 2989043785951321967, guid: 9fd609f392d171a40ade4291a7dccd15, type: 3}
   behemothFish: {fileID: 1397796917931429875, guid: e9e11037c5999894196c87eee2847ea5, type: 3}
   blitzFish: {fileID: 1397796917931429875, guid: 0c198c3083b5b674eba293ae9487627a, type: 3}
+  swarmerFish: {fileID: 1397796917931429875, guid: 06d7f0cf3c968a848b45ede1ed78eadf, type: 3}
+  armoredFish: {fileID: 1397796917931429875, guid: 80a4cb5aa824ffd4da0fd516e90309c1, type: 3}
+  ghostFish: {fileID: 1397796917931429875, guid: 38d0c3cb6194949428861bad5978a6d6, type: 3}
   roundInfoList: []
   doneSpawning: 0
 --- !u!1 &740950898
